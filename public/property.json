@@ -1,0 +1,78 @@
+
+[
+     {
+       "id": 1,
+       "image": "https://i.ibb.co/GvMY35r/Image-1.png",
+       "title": "Seaside Serenity Villa",
+       "price": 850000,
+       "property_size": "3,000 sqft",
+       "build_year": 2015,
+       "location": "321 Ocean Drive, Malibu, CA 90265, USA",
+       "description": "Experience luxury living in this seaside villa with panoramic ocean views. Features include a private beach, infinity pool, and modern interiors.",
+       "bedrooms": 5,
+       "bathrooms": 4
+     },
+     {
+       "id": 2,
+       "image": "https://i.ibb.co/xzNnpGr/Image-2.png",
+       "title": "Metropolitan Haven",
+       "price": 950000,
+       "property_size": "2,200 sqft",
+       "build_year": 2019,
+       "location": "789 Central Park West, New York, NY 10025, USA",
+       "description": "A contemporary apartment in the heart of the city with breathtaking skyline views. Includes state-of-the-art amenities and a spacious open-concept design.",
+       "bedrooms": 3,
+       "bathrooms": 3
+     },
+     {
+       "id": 3,
+       "image": "https://i.ibb.co/xm9j00J/Image-3.png",
+       "title": "Rustic Retreat Cottage",
+       "price": 420000,
+       "property_size": "1,500 sqft",
+       "build_year": 2008,
+       "location": "456 Mountain Road, Asheville, NC 28801, USA",
+       "description": "A cozy rustic cottage surrounded by nature, perfect for those seeking a peaceful retreat. Features include a stone fireplace, wood-beamed ceilings, and a large deck overlooking the mountains.",
+       "bedrooms": 2,
+       "bathrooms": 2
+     },
+      {
+        "id": 4,
+        "image": "https://example.com/images/property1.jpg",
+        "title": "Modern Family Home",
+        "price": 450000,
+        "property_size": "2,500 sqft",
+        "build_year": 2018,
+        "location": "123 Maple Street, Springfield, IL 62704, USA",
+        "description": "A beautiful modern family home located in a quiet neighborhood. Features include a spacious living room, open kitchen, and a large backyard.",
+        "bedrooms": 4,
+        "bathrooms": 3
+      },
+      {
+        "id": 5,
+        "image": "https://example.com/images/property2.jpg",
+        "title": "Luxury Condo in Downtown",
+        "price": 1200000,
+        "property_size": "1,800 sqft",
+        "build_year": 2020,
+        "location": "456 Oak Avenue, New York, NY 10001, USA",
+        "description": "This luxury condo offers stunning city views and top-of-the-line amenities. Ideal for professionals looking for a sophisticated urban lifestyle.",
+        "bedrooms": 2,
+        "bathrooms": 2
+      },
+      {
+        "id": 6,
+        "image": "https://example.com/images/property3.jpg",
+        "title": "Cozy Cottage by the Lake",
+        "price": 350000,
+        "property_size": "1,200 sqft",
+        "build_year": 1995,
+        "location": "789 Lakeview Drive, Lakewood, CO 80226, USA",
+        "description": "A charming cottage with lake views and a serene atmosphere. Perfect for weekend getaways or a peaceful retirement home.",
+        "bedrooms": 3,
+        "bathrooms": 2
+      }
+      
+    ]
+  
+  

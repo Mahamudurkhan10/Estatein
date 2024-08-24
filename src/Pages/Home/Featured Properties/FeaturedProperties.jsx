@@ -1,0 +1,116 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import PropertiesCard from './PropertiesCard';
+
+const FeaturedProperties = () => {
+  const [properties, setProperties] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    fetch('/property.json')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => setProperties(data))
+      .catch(error => console.error('Error fetching properties:', error));
+  }, []);
+
+  const handleSlideChange = (swiper) => {
+    setCurrentIndex(swiper.activeIndex);
+   
+  };
+
+  const goToNextSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    };
+    }
+
+  const goToPreviousSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+  return (
+    <div className='container mt-5 mb-5 mx-auto'>
+      <div className='max-w-[1400px] mx-auto'>
+        <h1>
+          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
+        </h1>
+        <div className='flex flex-col lg:flex-row items-center'>
+          <div>
+            <h1 className='text-4xl text-white font-bold'>Featured Properties</h1>
+            <p className='lg:w-2/3 mt-2'>
+              Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click "View Details" for more information.
+            </p>
+          </div>
+          <div>
+            <button className='btn mr-7'>View All Properties</button>
+          </div>
+        </div>
+        <div className='mt-6 relative'>
+          {properties.length > 0 && (
+            <Swiper
+              ref={swiperRef}
+              modules={[Navigation, Pagination]}
+              slidesPerView={3}
+              spaceBetween={20}
+
+              pagination={{ clickable: true, type: 'custom' }}
+              navigation={false}
+              onSlideChange={handleSlideChange}
+              initialSlide={0}
+            >
+              {properties.map((property, index) => (
+                <SwiperSlide className='p-6' key={property.id}>
+                   <PropertiesCard key={property.id} property={property} ></PropertiesCard>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+          <div className=' bottom-0 right-0 flex items-center space-x-2 p-4'>
+            <span className='text-white'>
+              0{currentIndex + 1} Of {properties.length}
+            </span>
+          </div>
+          <div className='absolute bottom-0 right-0 flex items-center justify-end gap-5 w-full p-4'>
+           {currentIndex >0?
+            <button
+              onClick={goToPreviousSlide}
+              className='bg-gray-800 text-white text-xl p-2 rounded-full hover:bg-gray-700'
+            >
+              <FaArrowLeft></FaArrowLeft>
+            </button>:
+            <button
+              onClick={goToPreviousSlide}
+              className='bg-gray-800 text-xl text-gray-500 p-2 rounded-full hover:bg-gray-700'
+            >
+              <FaArrowLeft></FaArrowLeft>
+            </button>
+            }
+           
+            <button
+              onClick={goToNextSlide}
+              className='bg-gray-800 text-blue-500 text-xl p-2 rounded-full hover:bg-gray-700'
+            >
+             <FaArrowRight/>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeaturedProperties;

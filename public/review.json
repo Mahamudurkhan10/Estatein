@@ -1,0 +1,48 @@
+[
+     {
+       "id": 1,
+       "title": "Outstanding Work!",
+       "name": "John Doe",
+       "img": "https://i.ibb.co/xCXPJhh/cartoon-game-avatar-logo-gaming-brand-902820-469.jpg",
+       "location": "New York, USA",
+       "description": "The project exceeded my expectations. The attention to detail and quality of work were top-notch.",
+       "stars": 5
+     },
+     {
+       "id": 2,
+       "title": "Very Satisfied",
+       "name": "Jane Smith",
+       "img": "https://i.ibb.co/XCsm8p9/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profil.webp",
+       "location": "London, UK",
+       "description": "Great communication and excellent results. Highly recommend!",
+       "stars": 4.5
+     },
+     {
+       "id": 3,
+       "title": "Professional Service",
+       "name": "Carlos Garcia",
+       "img": "https://i.ibb.co/SdkDBP7/man-avatar-profile-round-icon-24640-14044.jpg",
+       "location": "Madrid, Spain",
+       "description": "Delivered on time and with high quality. I’m very pleased with the outcome.",
+       "stars": 4.8
+     },
+     {
+       "id": 4,
+       "title": "Creative and Reliable",
+       "name": "Emily Johnson",
+       "img": "https://i.ibb.co/xCXPJhh/cartoon-game-avatar-logo-gaming-brand-902820-469.jpg",
+       "location": "Toronto, Canada",
+       "description": "The developer brought great ideas to the table and executed them flawlessly.",
+       "stars": 5
+     },
+     {
+       "id": 5,
+       "title": "Excellent Communication",
+       "name": "Liam Brown",
+       "img": "https://i.ibb.co/xCXPJhh/cartoon-game-avatar-logo-gaming-brand-902820-469.jpg",
+       "location": "Sydney, Australia",
+       "description": "Kept me informed throughout the project and delivered exactly what I needed.",
+       "stars": 4.7
+     }
+   ]
+   
