@@ -1,0 +1,28 @@
+[
+     {
+       "id": 1,
+       "title": "What makes this project unique?",
+       "description": "This project stands out due to its innovative design and user-friendly interface."
+     },
+     {
+       "id": 2,
+       "title": "What challenges were faced during development?",
+       "description": "Some challenges included optimizing performance and ensuring cross-browser compatibility."
+     },
+     {
+       "id": 3,
+       "title": "How does the project handle user authentication?",
+       "description": "User authentication is handled using secure JWT tokens, ensuring user data is protected."
+     },
+     {
+       "id": 4,
+       "title": "What technologies were used?",
+       "description": "The project is built using React, Node.js, and MongoDB for a full-stack development experience."
+     },
+     {
+       "id": 5,
+       "title": "How does the project ensure data security?",
+       "description": "Data security is ensured through encryption, secure APIs, and regular security audits."
+     }
+   ]
+   

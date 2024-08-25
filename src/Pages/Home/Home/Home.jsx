@@ -1,3 +1,4 @@
+import AskQuestion from "../AskQuestion/AskQuestion";
 import Banner from "../Banner/Banner";
 import FeaturedProperties from "../Featured Properties/FeaturedProperties";
 import ReviewSection from "../Review/ReviewSection";
@@ -12,6 +13,7 @@ const Home = () => {
                <Section></Section>
                <FeaturedProperties></FeaturedProperties>
                 <ReviewSection></ReviewSection>
+                <AskQuestion></AskQuestion>
           </div>
      );
 };

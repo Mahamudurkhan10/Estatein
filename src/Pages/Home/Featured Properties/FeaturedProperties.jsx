@@ -66,11 +66,22 @@ const FeaturedProperties = () => {
               modules={[Navigation, Pagination]}
               slidesPerView={3}
               spaceBetween={20}
-
+            
               pagination={{ clickable: true, type: 'custom' }}
               navigation={false}
               onSlideChange={handleSlideChange}
               initialSlide={0}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1, 
+                },
+                768: {
+                  slidesPerView: 2, 
+                },
+                1024: {
+                  slidesPerView: 3, 
+                },
+              }}
             >
               {properties.map((property, index) => (
                 <SwiperSlide className='p-6' key={property.id}>
@@ -81,7 +92,11 @@ const FeaturedProperties = () => {
           )}
           <div className=' bottom-0 right-0 flex items-center space-x-2 p-4'>
             <span className='text-white'>
-              0{currentIndex + 1} Of {properties.length}
+             { currentIndex >= 9?
+              <div> {currentIndex + 1} Of {properties.length}</div>:
+              <div> 0 {currentIndex + 1} Of {properties.length}</div>
+            
+             }
             </span>
           </div>
           <div className='absolute bottom-0 right-0 flex items-center justify-end gap-5 w-full p-4'>

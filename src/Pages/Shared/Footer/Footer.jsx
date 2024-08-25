@@ -3,7 +3,7 @@ import { IoIosSend } from "react-icons/io";
 const Footer = () => {
      return (
           <div>
-               <footer className="footer container mx-auto text-white p-10">
+               <footer className="footer hover:shadow-2xl border border-black container mx-auto text-white p-10">
                     <div >
                          <aside className="flex  items-center gap-3">
                               <img src="https://i.ibb.co/qrTfx3H/Symbol.png" className="size-9" alt="" />
