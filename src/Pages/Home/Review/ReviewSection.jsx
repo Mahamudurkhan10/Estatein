@@ -38,11 +38,11 @@ const ReviewSection = () => {
      }
      return (
           <div className="container mx-auto mb-5 mt-5">
-               <div className="max-w-[1400px] mx-auto">
+               <div className="max-w-[1400px] p-4 lg:p-0 mx-auto">
                     <h1>
                          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
                     </h1>
-                    <div className='flex flex-col lg:flex-row items-center lg:justify-between'>
+                    <div className='flex gap-3 lg:gap-0 flex-col lg:flex-row items-center lg:justify-between'>
                          <div>
                               <h1 className='text-4xl text-white font-bold'>What Our Clients Say</h1>
                               <p className='lg:w-2/3 mt-2'>
@@ -59,13 +59,24 @@ const ReviewSection = () => {
                                    <Swiper
                                         ref={swiperRef}
                                         modules={[Navigation, Pagination]}
-                                        slidesPerView={3}
+                                      
                                         spaceBetween={20}
 
                                         pagination={{ clickable: true, type: 'custom' }}
                                         navigation={false}
                                         onSlideChange={handleSlideChange}
                                         initialSlide={0}
+                                        breakpoints={{
+                                             640: {
+                                               slidesPerView: 1, 
+                                             },
+                                             768: {
+                                               slidesPerView: 2, 
+                                             },
+                                             1024: {
+                                               slidesPerView: 3, 
+                                             },
+                                           }}
                                    >
                                         {reviews.map((review, index) => (
                                              <SwiperSlide className='p-6' key={review.id}>

@@ -41,12 +41,12 @@ const AskQuestion = () => {
           }
      }
      return (
-          <div className="container mx-auto mb-5 mt-5">
-               <div className="max-w-[1400px] mx-auto">
+          <div className="container mx-auto mb-5 mt-6">
+               <div className="max-w-[1400px] lg:p-0 p-4 mx-auto">
                     <h1>
                          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
                     </h1>
-                    <div className='flex flex-col lg:flex-row items-center'>
+                    <div className='flex flex-col  lg:flex-row lg:gap-0 gap-2 items-center'>
                          <div>
                               <h1 className='text-4xl text-white font-bold'>Frequently Asked Questions</h1>
                               <p className='lg:w-2/3 mt-2'>
@@ -62,7 +62,7 @@ const AskQuestion = () => {
                               <Swiper
                                    ref={swiperRef}
                                    modules={[Navigation, Pagination]}
-                                   slidesPerView={3}
+                                 
                                    spaceBetween={20}
 
                                    Pagination={{ clickable: true, type: 'custom' }}

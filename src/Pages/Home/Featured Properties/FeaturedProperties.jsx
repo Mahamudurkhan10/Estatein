@@ -44,11 +44,11 @@ const FeaturedProperties = () => {
   };
   return (
     <div className='container mt-5 mb-5 mx-auto'>
-      <div className='max-w-[1400px] mx-auto'>
+      <div className='max-w-[1400px] p-4 lg:p-0 mx-auto'>
         <h1>
           <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
         </h1>
-        <div className='flex flex-col lg:flex-row items-center'>
+        <div className='flex flex-col gap-3 lg:gap-0  lg:flex-row items-center'>
           <div>
             <h1 className='text-4xl text-white font-bold'>Featured Properties</h1>
             <p className='lg:w-2/3 mt-2'>
@@ -64,7 +64,7 @@ const FeaturedProperties = () => {
             <Swiper
               ref={swiperRef}
               modules={[Navigation, Pagination]}
-              slidesPerView={3}
+           
               spaceBetween={20}
             
               pagination={{ clickable: true, type: 'custom' }}
