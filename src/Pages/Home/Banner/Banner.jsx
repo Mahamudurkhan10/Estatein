@@ -4,7 +4,7 @@ const Banner = () => {
      return (
           <div className="bg-[#141414]  ">
                <div className=" container mx-auto  mt-5 ">
-                    <div className="    p-2 flex  flex-col lg:items-center lg:flex-row-reverse ">
+                    <div className=" flex flex-col lg:items-center lg:justify-between lg:flex-row-reverse ">
                          <img
                               src="https://i.ibb.co/8N5v8ym/Image.png"
 

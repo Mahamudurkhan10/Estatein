@@ -46,7 +46,7 @@ const AskQuestion = () => {
                     <h1>
                          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
                     </h1>
-                    <div className='flex flex-col  lg:flex-row lg:gap-0 gap-2 items-center'>
+                    <div className='flex flex-col  lg:flex-row lg:justify-between lg:gap-0 gap-2 items-center'>
                          <div>
                               <h1 className='text-4xl text-white font-bold'>Frequently Asked Questions</h1>
                               <p className='lg:w-2/3 mt-2'>

@@ -9,8 +9,8 @@ const PropertiesCard = ({property}) => {
      const newDescripton = `${description.slice(0,70)}...`
      return (
           <div>
-                    <div className='property-slide hover:shadow-2xl border border-black '>
-                    <img src={property.image} alt={property.title} className='w-full h-64 object-cover' />
+                    <div className='property-slide hover:shadow-2xl border-4 border-base-100'>
+                    <img src={property.image} alt={property.title} className='w-full p-5 h-64 object-cover' />
                     <div className='p-4'>
                       <h3 className='text-xl font-bold'>{property.title}</h3>
                       <p onClick={()=>setIsExpended(!isExpended)} >

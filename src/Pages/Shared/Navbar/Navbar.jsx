@@ -1,6 +1,17 @@
+import { NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
+     const navItems = <div className="flex flex-col lg:flex-row gap-8">
+       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/'}  ><li><a >Home</a></li></NavLink>
+       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/aboutUs'}  ><li><a >About Us</a></li></NavLink>
+       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/properties'}  ><li><a >Properties</a></li></NavLink>
+       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/services'}  ><li><a >Services</a></li></NavLink>
+       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/contactUs'}  ><li><a >Contact Us</a></li></NavLink>
+    
+
+          
+     </div>
      return (
           <div className=" bg-[#191919] container mx-auto">
                <div className="navbar max-w-[1400px] mx-auto  ">
@@ -23,36 +34,18 @@ const Navbar = () => {
                               <ul
                                    tabIndex={0}
                                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                   <li><a>Item 1</a></li>
-                                   <li>
-                                        <a>Parent</a>
-                                        <ul className="p-2">
-                                             <li><a>Submenu 1</a></li>
-                                             <li><a>Submenu 2</a></li>
-                                        </ul>
-                                   </li>
-                                   <li><a>Item 3</a></li>
+                                   {navItems}
                               </ul>
                          </div>
                          <a className="btn btn-ghost text-xl">daisyUI</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                          <ul className="menu menu-horizontal px-1">
-                              <li><a>Item 1</a></li>
-                              <li>
-                                   <details>
-                                        <summary>Parent</summary>
-                                        <ul className="p-2">
-                                             <li><a>Submenu 1</a></li>
-                                             <li><a>Submenu 2</a></li>
-                                        </ul>
-                                   </details>
-                              </li>
-                              <li><a>Item 3</a></li>
+                              {navItems}
                          </ul>
                     </div>
                     <div className="navbar-end ">
-                         <a className="btn px-6">Button</a>
+                         <a className="btn px-6">Login</a>
                     </div>
                </div>
           </div>
