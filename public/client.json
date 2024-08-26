@@ -1,0 +1,43 @@
+[
+     {
+       "id": 1,
+       "company_name": "Tech Innovators Inc.",
+       "domain_name": "techinnovators.com",
+       "category_name": "Technology",
+       "added_date": "2023-07-15",
+       "review_description": "We've been working with them for the past year, and their innovative solutions have helped us streamline our operations and boost productivity. Highly recommended!"
+     },
+     {
+       "id": 2,
+       "company_name": "HealthPlus",
+       "domain_name": "healthplus.org",
+       "category_name": "Healthcare",
+       "added_date": "2023-08-01",
+       "review_description": "Their team is incredibly knowledgeable and responsive. They provided us with top-notch services that greatly improved our patient management system."
+     },
+     {
+       "id": 3,
+       "company_name": "EduVision",
+       "domain_name": "eduvision.edu",
+       "category_name": "Education",
+       "added_date": "2023-09-10",
+       "review_description": "EduVision has been revolutionized by the digital solutions provided by their team. Their expertise in the education sector is unparalleled."
+     },
+     {
+       "id": 4,
+       "company_name": "EcoGreen Solutions",
+       "domain_name": "ecogreen.com",
+       "category_name": "Environmental",
+       "added_date": "2023-07-22",
+       "review_description": "Their commitment to sustainability aligns perfectly with our mission. The solutions they provided have significantly reduced our environmental impact."
+     },
+     {
+       "id": 5,
+       "company_name": "FinancePro",
+       "domain_name": "financepro.net",
+       "category_name": "Finance",
+       "added_date": "2023-08-18",
+       "review_description": "They have a deep understanding of the finance industry and provided us with customized solutions that exceeded our expectations."
+     }
+   ]
+   

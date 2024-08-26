@@ -1,3 +1,4 @@
+import ExtraSection from "../../Shared/ExtraSection/ExtraSection";
 import AskQuestion from "../AskQuestion/AskQuestion";
 import Banner from "../Banner/Banner";
 import FeaturedProperties from "../Featured Properties/FeaturedProperties";
@@ -14,6 +15,7 @@ const Home = () => {
                <FeaturedProperties></FeaturedProperties>
                 <ReviewSection></ReviewSection>
                 <AskQuestion></AskQuestion>
+                <ExtraSection></ExtraSection>
           </div>
      );
 };

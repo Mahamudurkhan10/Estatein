@@ -10,9 +10,9 @@ const OurValues = () => {
                                    <h1>
                                         <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
                                    </h1>
-                                   <h1 className="text-3xl mt-5 lg:text-4xl lg:w-4/5  text-white font-semibold">Our Journey</h1>
+                                   <h1 className="text-3xl mt-5 lg:text-4xl lg:w-4/5  text-white font-semibold">Our Values</h1>
                                    <p className=" mt-2 lg:w-2/3">
-                                   Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary. Over the years, we've expanded our reach, forged valuable partnerships, and gained the trust of countless clients.
+                                   Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.
                                    </p>
                                   
                                    
