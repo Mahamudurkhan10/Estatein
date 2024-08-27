@@ -48,7 +48,7 @@ const FeaturedProperties = () => {
         <h1>
           <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
         </h1>
-        <div className='flex flex-col gap-3 lg:gap-0  lg:flex-row items-center'>
+        <div className='flex flex-col gap-3 lg:gap-0   lg:flex-row items-center'>
           <div>
             <h1 className='text-4xl text-white font-bold'>Featured Properties</h1>
             <p className='lg:w-2/3 mt-2'>
@@ -56,7 +56,7 @@ const FeaturedProperties = () => {
             </p>
           </div>
           <div>
-            <button className='btn mr-7'>View All Properties</button>
+            <button className='btn mr-7 '>View All Properties</button>
           </div>
         </div>
         <div className='mt-6 relative'>

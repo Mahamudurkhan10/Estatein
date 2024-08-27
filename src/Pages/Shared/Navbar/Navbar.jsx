@@ -13,7 +13,7 @@ const Navbar = () => {
           
      </div>
      return (
-          <div className=" bg-[#191919] container mx-auto">
+          <div className=" bg-[#191919] container  mx-auto">
                <div className="navbar max-w-[1400px] mx-auto  ">
                     <div className="navbar-start">
                          <div className="dropdown">
@@ -37,7 +37,7 @@ const Navbar = () => {
                                    {navItems}
                               </ul>
                          </div>
-                         <a className="btn btn-ghost text-xl">daisyUI</a>
+                        <NavLink to={'/'} >    <a  className="btn btn-ghost"> <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" />  VerdantHaven </a></NavLink>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                          <ul className="menu menu-horizontal px-1">
@@ -45,7 +45,7 @@ const Navbar = () => {
                          </ul>
                     </div>
                     <div className="navbar-end ">
-                         <a className="btn px-6">Login</a>
+                         <a className="btn px-6 mr-6">Login</a>
                     </div>
                </div>
           </div>
