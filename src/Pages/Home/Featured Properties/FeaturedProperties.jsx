@@ -56,7 +56,7 @@ const FeaturedProperties = () => {
             </p>
           </div>
           <div>
-            <button className='btn mr-7 '>View All Properties</button>
+            <button className='btn  '>View All Properties</button>
           </div>
         </div>
         <div className='mt-6 relative'>
@@ -84,7 +84,7 @@ const FeaturedProperties = () => {
               }}
             >
               {properties.map((property, index) => (
-                <SwiperSlide className='p-6' key={property.id}>
+                <SwiperSlide className='' key={property.id}>
                    <PropertiesCard key={property.id} property={property} ></PropertiesCard>
                 </SwiperSlide>
               ))}

@@ -37,7 +37,7 @@ const Navbar = () => {
                                    {navItems}
                               </ul>
                          </div>
-                        <NavLink to={'/'} >    <a  className="btn btn-ghost"> <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" />  VerdantHaven </a></NavLink>
+                        <NavLink to={'/'} >    <a  className="btn btn-ghost"> <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" />  Estatein </a></NavLink>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                          <ul className="menu menu-horizontal px-1">
@@ -45,7 +45,7 @@ const Navbar = () => {
                          </ul>
                     </div>
                     <div className="navbar-end ">
-                         <a className="btn px-6 mr-6">Login</a>
+                         <a className="btn px-6 ">Login</a>
                     </div>
                </div>
           </div>

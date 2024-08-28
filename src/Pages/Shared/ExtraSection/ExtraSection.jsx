@@ -15,7 +15,7 @@ const ExtraSection = () => {
                               <h1 className="text-4xl text-white mb-4 font-semibold">Start Your Real Estate Journey Today</h1>
                               <p className="lg:w-3/4">Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, Estatein is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance.</p>
                               </div>
-                              <button className="btn bg-[#703bf7] px-6 mt-4 lg:mt-0  mr-7 text-white hover:bg-[#572fbd]">Explore Properties</button>
+                              <button className="btn bg-[#703bf7] px-6 mt-4 lg:mt-0   text-white hover:bg-[#572fbd]">Explore Properties</button>
                          </div>
                     </div>
                </div>

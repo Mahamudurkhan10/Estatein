@@ -8,7 +8,7 @@ const PropertiesCard = ({property}) => {
      const {description} = property;
      const newDescripton = `${description.slice(0,70)}...`
      return (
-          <div>
+          <div >
                     <div className='property-slide hover:shadow-2xl border-4 border-base-100'>
                     <img src={property.image} alt={property.title} className='w-full p-5 h-64 object-cover' />
                     <div className='p-4'>

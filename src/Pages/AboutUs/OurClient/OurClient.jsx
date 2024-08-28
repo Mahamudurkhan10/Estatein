@@ -84,7 +84,7 @@ const OurClient = () => {
               }}
             >
               {clients.map((client, index) => (
-                <SwiperSlide className='p-6' key={client.id}>
+                <SwiperSlide className='' key={client.id}>
                    <div className='border-4 border-base-100 hover:shadow-2xl lg:h-[450px] p-8'>
                       <div className='flex flex-col lg:flex-row gap-6 lg:gap-0 lg:justify-between'>
                          <div>

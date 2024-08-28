@@ -18,7 +18,7 @@ const OurValues = () => {
                                    
                                
                               </div>
-                              <div className='p-6 lg:p-9 hover:shadow-2xl border-4 border-base-100  card '>
+                              <div className='p-6 lg:p-0 hover:shadow-2xl border-4 border-base-100  card '>
                                    <div className=' '>
                                         <div className='grid grid-cols-1 lg:grid-cols-2 lg:ml-7 gap-8 lg:gap-[60px]'>
                                         <div className=''>

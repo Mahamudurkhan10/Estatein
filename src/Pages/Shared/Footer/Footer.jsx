@@ -12,7 +12,7 @@ const Footer = () => {
                 className="size-9"
                 alt="VerdantHaven Logo"
               />
-              <p className="uppercase text-xl">VerdantHaven</p>
+              <p className="uppercase text-xl">Estatein</p>
             </aside>
             <form action="">
               <label className="input input-bordered mt-5 flex items-center gap-2">

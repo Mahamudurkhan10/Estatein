@@ -54,7 +54,7 @@ const AskQuestion = () => {
                               </p>
                          </div>
                          <div>
-                              <button className='btn mr-7'>View All FAQ's</button>
+                              <button className='btn '>View All FAQ's</button>
                          </div>
                     </div>
                     <div className='mt-6 relative'>
@@ -82,7 +82,7 @@ const AskQuestion = () => {
                                    }}
                               >
                                    {questions.map((question, index) => (
-                                        <SwiperSlide className='p-6' key={question.id}>
+                                        <SwiperSlide className='' key={question.id}>
                                              <QuestionCard queston={question}></QuestionCard>
                                         </SwiperSlide>
                                    ))}

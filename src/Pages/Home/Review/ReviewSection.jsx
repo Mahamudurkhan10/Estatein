@@ -50,7 +50,7 @@ const ReviewSection = () => {
                               </p>
                          </div>
                          <div>
-                              <button className='btn mr-7'>View All Testimonials</button>
+                              <button className='btn '>View All Testimonials</button>
                          </div>
                     </div>
                     <div>
@@ -79,7 +79,7 @@ const ReviewSection = () => {
                                            }}
                                    >
                                         {reviews.map((review, index) => (
-                                             <SwiperSlide className='p-6' key={review.id}>
+                                             <SwiperSlide className='' key={review.id}>
                                                 <ReviewsCard review={review}></ReviewsCard>
                                              </SwiperSlide>
                                         ))}
