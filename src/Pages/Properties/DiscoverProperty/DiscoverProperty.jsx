@@ -114,7 +114,7 @@ const DiscoverProperty = () => {
                                    <div>
                                         <h1 className='text-4xl text-white font-bold'>Discover a World of Possibilities</h1>
                                         <p className=' mt-2'>
-                                             Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home
+                                             Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home.
                                         </p>
                                    </div>
 

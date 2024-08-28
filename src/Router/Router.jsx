@@ -6,6 +6,7 @@ import Main from "../LayOut/Main";
 import Home from "../Pages/Home/Home/Home";
 import AboutUs from "../Pages/AboutUs/AboutUs/AboutUs";
 import Properties from "../Pages/Properties/Properties/Properties";
+import Services from "../Pages/Services/Services/Services";
 export const router = createBrowserRouter([
      {
           path: "/",
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
                {
                     path:'/properties',
                     element:<Properties></Properties>
+               },
+               {
+                    path:'/services',
+                    element:<Services></Services>
                }
           ]
      },
