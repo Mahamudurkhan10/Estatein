@@ -12,7 +12,7 @@ const MakeIt = () => {
                               <div>
                                    <h1 className='text-4xl text-white font-bold'>Let's Make it Happen</h1>
                                    <p className=' mt-3'>
-                                   Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together.
+                                        Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together.
                                    </p>
                               </div>
 
@@ -58,7 +58,7 @@ const MakeIt = () => {
                                              </div>
                                              <div className="flex flex-col mb-4">
                                                   <label>
-                                                      Phone
+                                                       Phone
 
                                                   </label>
                                                   <input
@@ -67,7 +67,7 @@ const MakeIt = () => {
                                                        className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                                   />
                                              </div>
-                                         
+
                                         </div>
                                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6" >
                                              <div className="flex flex-col mb-4">
@@ -190,15 +190,26 @@ const MakeIt = () => {
                                                   className="mt-2 bg-[#191919] text-white px-6 py-2 shadow rounded"
                                              ></textarea>
                                         </div>
-                                        <div className="text-end" >
-                                             <button
-                                                  type="submit"
-                                                  className=" bg-[#703bf7] rounded-xl  py-4 px-10 font-semibold text-white shadow hover:bg-blue-500"
-                                             >
-                                                  Send Message
-                                             </button>
+                                        <div className="flex justify-between flex-col lg:flex-row">
+                                             <div className="form-control flex flex-row items-center gap-3">
 
+                                                  <input type="checkbox" className="checkbox" />
+                                                  <label className="label ">
+                                                       I agree with Terms of Use and Privacy Policy
+
+                                                  </label>
+                                             </div>
+                                             <div className="text-end" >
+                                                  <button
+                                                       type="submit"
+                                                       className=" bg-[#703bf7] rounded-xl  py-4 px-10 font-semibold text-white shadow hover:bg-blue-500"
+                                                  >
+                                                       Send Message
+                                                  </button>
+
+                                             </div>
                                         </div>
+
                                    </form>
                               </div>
                          </div>

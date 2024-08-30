@@ -7,7 +7,8 @@ const Navbar = () => {
        <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/aboutUs'}  ><li><a >About Us</a></li></NavLink>
        <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/properties'}  ><li><a >Properties</a></li></NavLink>
        <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/services'}  ><li><a >Services</a></li></NavLink>
-       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/contactUs'}  ><li><a >Contact Us</a></li></NavLink>
+       <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/contact'}  ><li><a >Contact</a></li></NavLink>
+
     
 
           

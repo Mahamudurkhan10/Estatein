@@ -19,8 +19,8 @@ const OurValues = () => {
                                
                               </div>
                               <div className='p-6 lg:p-0 hover:shadow-2xl border-4 border-base-100  card '>
-                                   <div className=' '>
-                                        <div className='grid grid-cols-1 lg:grid-cols-2 lg:ml-7 gap-8 lg:gap-[60px]'>
+                                   <div className=''>
+                                        <div className='grid mt-4 grid-cols-1 lg:grid-cols-2 lg:ml-7 gap-8 lg:gap-[60px]'>
                                         <div className=''>
                                              <h1 className='flex gap-4 items-center font-semibold text-xl'> <img  src="https://i.ibb.co/mNG9cZD/Icon-Container-4.png"  alt="" className='rounded-full size-[50px]' /> Trust </h1>
                                              <p className='mt-5'>Trust is the cornerstone of every successful real estate transaction.</p>
