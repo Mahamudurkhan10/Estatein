@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
-     const navItems = <div className="flex flex-col lg:flex-row gap-8">
+     const navItems = <div className="flex flex-col text-xl lg:flex-row gap-8">
        <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/'}  ><li><a >Home</a></li></NavLink>
        <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/aboutUs'}  ><li><a >About Us</a></li></NavLink>
        <NavLink className={({isActive}) => isActive?'font-bold text-primary':"font-semibold" } to={'/properties'}  ><li><a >Properties</a></li></NavLink>
@@ -38,7 +38,7 @@ const Navbar = () => {
                                    {navItems}
                               </ul>
                          </div>
-                        <NavLink to={'/'} >    <a  className="btn btn-ghost"> <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" />  Estatein </a></NavLink>
+                        <NavLink to={'/'} >    <a  className="btn btn-ghost text-xl"> <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" />  Estatein </a></NavLink>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                          <ul className="menu menu-horizontal px-1">
@@ -46,7 +46,7 @@ const Navbar = () => {
                          </ul>
                     </div>
                     <div className="navbar-end ">
-                         <a className="btn px-6 ">Login</a>
+                         <a className="btn px-6 text-xl ">Login</a>
                     </div>
                </div>
           </div>

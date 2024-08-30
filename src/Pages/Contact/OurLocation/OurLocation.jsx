@@ -28,7 +28,7 @@ const OurLocation = () => {
                                    <h1 className="btn rounded-full"> <MdPhone></MdPhone> +1 (123) 456-7890</h1>
                                    <h1 className="btn rounded-full"> <MdLocationPin /> Metropolis</h1>
                               </div>
-                              <button className="btn mt-5 bg-[#703bf7] hover:bg-[#703bf7] text-white">Get Direction</button>
+                              <button className="btn mt-14 bg-[#703bf7] hover:bg-[#703bf7] text-white">Get Direction</button>
                          </div>
                          <div className="card p-8  border-4 border-base-100">
                               <h1 className=" mb-2 font-medium text-slate-200" > Regional Offices</h1>
@@ -50,8 +50,8 @@ const OurLocation = () => {
                               <div className="col-span-2"> <img src="https://i.ibb.co/rmpS9yh/Image-4.png" alt="" /> </div>
                               <div className="col-span-2"> <img src="https://i.ibb.co/0BJdpkp/Image-5.png" alt="" /> </div>
                               <div className="col-span-2"> <img src="https://i.ibb.co/HHMCScT/Image-6.png" alt="" /> </div>
-                              <div className="col-span-1 border"> <img className="h-full" src="https://i.ibb.co/rmpS9yh/Image-4.png" alt="" /> </div>
-                              <div className="col-span-1 border"> <img className="h-full" src="https://i.ibb.co/rmpS9yh/Image-4.png" alt="" /> </div>
+                              <div className="col-span-1 border"> <img className="h-full" src="https://i.ibb.co/KsCnkMs/Image-7.png" alt="" /> </div>
+                              <div className="col-span-1 border"> <img className="h-full" src="https://i.ibb.co/7R36KjL/Image-8.png" alt="" /> </div>
                               <div className=" p-7 col-span-2">
                                    <h1>
                                         <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
@@ -61,7 +61,7 @@ const OurLocation = () => {
                                         Step inside the world of Estatein, where professionalism meets warmth, and expertise meets passion. Our gallery offers a glimpse into our team and workspaces, inviting you to get to know us better.
                                    </p>
                               </div>
-                              <div className="col-span-2"> <img src="https://i.ibb.co/rmpS9yh/Image-4.png" alt="" /> </div>
+                              <div className="col-span-2"> <img src="https://i.ibb.co/L1mNq0c/Image-9.png" alt="" /> </div>
 
                          </div>
                     </div>
