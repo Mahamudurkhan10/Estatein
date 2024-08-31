@@ -7,16 +7,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaHome } from 'react-icons/fa';
 import PropertiesCard from '../../Home/Featured Properties/PropertiesCard';
-import { IoIosSend } from 'react-icons/io';
+
 import { IoSearch } from 'react-icons/io5';
+import { FaLocationPin } from 'react-icons/fa6';
+import { MdCalendarMonth, MdCamera, MdCameraEnhance, MdVilla } from 'react-icons/md';
+import { LuBox } from 'react-icons/lu';
 const DiscoverProperty = () => {
      const [properties, setProperties] = useState([]);
      const [currentIndex, setCurrentIndex] = useState(0);
      const swiperRef = useRef(null);
-     const [location,setLocation] =useState('')
- console.log(location);
+     const [location, setLocation] = useState('')
+     console.log(location);
      useEffect(() => {
           fetch('/property.json')
                .then(res => {
@@ -68,40 +71,55 @@ const DiscoverProperty = () => {
                               </form>
                          </div>
                          <div className='grid  grid-cols-2 lg:grid-cols-5 gap-4 lg:w-3/4 bg-[#191919]   p-4 mx-auto '>
-                              <div>
-                                   <select value={location} onChange={handleLocationChange} className="select select-bordered w-full max-w-xs">
-                                        <option  selected>Location</option>
-                                        <option>Han Solo</option>
-                                        <option>Greedo</option>
-                                   </select>
+                              <div className=''>
+                                   <label htmlFor="" className='flex items-center gap-3'>
+                                        <FaLocationPin></FaLocationPin>
+                                        <select value={location} onChange={handleLocationChange} className="select select-bordered w-full max-w-xs">
+                                             <option selected>Location</option>
+                                             <option>Han Solo</option>
+                                             <option>Greedo</option>
+                                        </select>
+                                   </label>
                               </div>
                               <div>
-                                   <select className="select select-bordered w-full max-w-xs">
-                                        <option disabled selected>Who shot first?</option>
-                                        <option>Han Solo</option>
-                                        <option>Greedo</option>
-                                   </select>
+                                   <label htmlFor="" className='flex gap-3 items-center'>
+                                        <MdVilla className='text-2xl'></MdVilla>
+                                        <select className="select select-bordered w-full max-w-xs">
+                                             <option disabled selected>Who shot first?</option>
+                                             <option>Han Solo</option>
+                                             <option>Greedo</option>
+                                        </select>
+                                   </label>
                               </div>
                               <div>
-                                   <select className="select select-bordered w-full max-w-xs">
-                                        <option disabled selected>Who shot first?</option>
-                                        <option>Han Solo</option>
-                                        <option>Greedo</option>
-                                   </select>
+                                   <label htmlFor="" className='flex items-center gap-3'>
+                                        <MdCameraEnhance className='text-2xl'></MdCameraEnhance>
+                                        <select className="select select-bordered w-full max-w-xs">
+                                             <option disabled selected>Who shot first?</option>
+                                             <option>Han Solo</option>
+                                             <option>Greedo</option>
+                                        </select>
+                                   </label>
                               </div>
                               <div>
-                                   <select className="select select-bordered w-full max-w-xs">
-                                        <option disabled selected>Who shot first?</option>
-                                        <option>Han Solo</option>
-                                        <option>Greedo</option>
-                                   </select>
+                                   <label htmlFor="" className='flex items-center gap-3'>
+                                        <LuBox className='text-2xl'></LuBox>
+                                        <select className="select select-bordered w-full max-w-xs">
+                                             <option disabled selected>Who shot first?</option>
+                                             <option>Han Solo</option>
+                                             <option>Greedo</option>
+                                        </select>
+                                   </label>
                               </div>
                               <div>
-                                   <select className="select select-bordered w-full max-w-xs">
-                                        <option disabled selected>Who shot first?</option>
-                                        <option>Han Solo</option>
-                                        <option>Greedo</option>
-                                   </select>
+                                   <label htmlFor="" className='flex items-center gap-3'>
+                                        <MdCalendarMonth></MdCalendarMonth>
+                                        <select className="select select-bordered w-full max-w-xs">
+                                             <option disabled selected>Who shot first?</option>
+                                             <option>Han Solo</option>
+                                             <option>Greedo</option>
+                                        </select>
+                                   </label>
                               </div>
                          </div>
                     </div>
