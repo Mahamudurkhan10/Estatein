@@ -9,6 +9,8 @@ import Properties from "../Pages/Properties/Properties/Properties";
 import Services from "../Pages/Services/Services/Services";
 import Contact from "../Pages/Contact/Contact/Contact";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails/PropertyDetails";
+import Login from "../Pages/Shared/LogIn/Login";
+import Register from "../Pages/Shared/Register/Register";
 export const router = createBrowserRouter([
      {
           path: "/",
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
                     path:'/propertyDetails',
                     element: <PropertyDetails> </PropertyDetails>,
                     
+               },
+               {
+                    path:'/login',
+                    element:<Login></Login>
+               },
+               {
+                    path:'/register',
+                    element:<Register></Register>
                }
           ]
      },
