@@ -1,7 +1,22 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Components/Provider/AuthProvider';
 
 const Login = () => {
+     const {googleLogin,user} = useContext(AuthContext)
+     const navigate = useNavigate()
+     const location = useLocation()
+     const form = location.state?.form?.pathname || "/";
+     const handleLogin = (e) =>{
+          e.preventDefault()
+          const email = e.target.email.value 
+          const password = e.target.password.value 
+          console.log(email,password);
+     }
+     const googleLogin2 =()=>{
+          googleLogin()
+        navigate(form,{replace: true})
+     }
      return (
           <div>
                <div className="bg-[#141414] rounded-lg py-5">
@@ -9,10 +24,10 @@ const Login = () => {
                          <div >
                               <div className=" max-w-xl mx-auto pb-12">
                                    <div className="flex items-center ">
-                                        <form className="flex flex-col w-full h-full pb-6 text-center bg-[#191919] p-12  rounded-3xl">
+                                        <form onSubmit={handleLogin} className="flex flex-col w-full h-full pb-6 text-center bg-[#191919] p-12  rounded-3xl">
                                              <h3 className="mb-3 text-4xl font-extrabold text-dark-grey-900">Log In</h3>
                                              <p className="mb-4 text-grey-700">Enter your email and password</p>
-                                             <button className="flex items-center justify-center w-full py-4 mb-6 border-2 border-[#703bf7] text-white text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
+                                             <button onClick={googleLogin2} className="flex items-center justify-center w-full py-4 mb-6 border-2 border-[#703bf7] text-white text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
                                                   <img
                                                        className="h-5 mr-2"
                                                        src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
