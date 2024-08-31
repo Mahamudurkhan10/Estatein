@@ -1,5 +1,8 @@
+import { FaBed } from "react-icons/fa";
 import AskQuestion from "../../Home/AskQuestion/AskQuestion";
 import ExtraSection from "../../Shared/ExtraSection/ExtraSection";
+import { IoFlashOutline } from "react-icons/io5";
+
 
 
 const PropertyDetails = () => {
@@ -9,8 +12,39 @@ const PropertyDetails = () => {
                     <div>
 
                     </div>
-                    <div>
+                    <div className="container mx-auto">
+                         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2   gap-4  mt-5">
+                              <div className="border border-base-100 h-[300px] p-9">
+                                   <h1 className="text-xl text-white"> Description </h1>
+                                   <p>Discover your own piece of paradise with the Seaside Serenity Villa. T With an open floor plan, breathtaking ocean views from every room, and direct access to a pristine sandy beach, this property is the epitome of coastal living.</p>
+                                   <div className="divider"></div>
+                                   <div className=" grid grid-cols-3">
+                                        <div>
+                                             <h1 className="flex items-center gap-3"> <FaBed></FaBed> Bedrooms </h1>
+                                             <h1 className="text-xl text-white"> 04 </h1>
+                                        </div>
+                                        <div className="border-l-2 border-base-100 px-3">
+                                             <h1 className="flex items-center gap-3"> <FaBed></FaBed> Bedrooms </h1>
+                                             <h1 className="text-xl text-white"> 04 </h1>
+                                        </div>
+                                        <div className="border-l-2 border-base-100 px-3">
+                                             <h1 className="flex items-center gap-3"> <FaBed></FaBed> Bedrooms </h1>
+                                             <h1 className="text-xl text-white"> 04 </h1>
+                                        </div>
+                                   </div>
 
+                              </div>
+                              <div className="border p-6 border-base-100">
+                                   <h1 className="text-xl text-white "> Key Features and Amenities </h1>
+                                   <div>
+                                        <h1 className="flex gap-2 bg-[#191919] p-2   ml-4 mt-5 w-4/5 border-l-2 border-indigo-500"> <IoFlashOutline className="text-xl text-white" />  Expansive oceanfront terrace for outdoor entertaining </h1>
+                                        <h1 className="flex gap-2 bg-[#191919] p-2   ml-4 mt-5 w-4/5 border-l-2 border-indigo-500"> <IoFlashOutline className="text-xl text-white" />  Expansive oceanfront terrace for outdoor entertaining </h1>
+                                        <h1 className="flex gap-2 bg-[#191919] p-2   ml-4 mt-5 w-4/5 border-l-2 border-indigo-500"> <IoFlashOutline className="text-xl text-white" />  Expansive oceanfront terrace for outdoor entertaining </h1>
+                                        <h1 className="flex gap-2 bg-[#191919] p-2   ml-4 mt-5 w-4/5 border-l-2 border-indigo-500"> <IoFlashOutline className="text-xl text-white" />  Expansive oceanfront terrace for outdoor entertaining </h1>
+                                        <h1 className="flex gap-2 bg-[#191919] p-2   ml-4 mt-5 w-4/5 border-l-2 border-indigo-500"> <IoFlashOutline className="text-xl text-white" />  Expansive oceanfront terrace for outdoor entertaining </h1>
+                                   </div>
+                              </div>
+                         </div>
                     </div>
                </div>
                <div className="mt-9">
@@ -222,7 +256,7 @@ const PropertyDetails = () => {
                                                             <p className="bg-[#191919] rounded-full p-2"> Approximate monthly property tax based on the sale price and local rates</p>
                                                        </div>
                                                   </div>
-                                                 
+
                                              </div>
                                              <div className="divider pt-5"></div>
                                              <div className="">
@@ -233,10 +267,10 @@ const PropertyDetails = () => {
                                                             <p className="bg-[#191919] rounded-full p-2"> Monthly fee for common area maintenance and security</p>
                                                        </div>
                                                   </div>
-                                                  
+
                                              </div>
-                                            
-                                             
+
+
                                         </div>
                                         <div className="border p-12 border-base-100">
                                              <div className="flex justify-between">
@@ -249,7 +283,7 @@ const PropertyDetails = () => {
                                                        <p> Listing Price</p>
                                                        <div className="flex items-center mt-3 gap-9">
                                                             <h1 className="text-xl text-white font-semibold"> $1,250,000 </h1>
-                                                            
+
                                                        </div>
                                                   </div>
                                                   <div className="border-l-4 border-base-100 pl-4">
@@ -277,7 +311,7 @@ const PropertyDetails = () => {
                                                        </div>
                                                   </div>
                                              </div>
-                                             
+
                                         </div>
                                         <div className="border p-12 border-base-100">
                                              <div className="flex justify-between">
@@ -290,7 +324,7 @@ const PropertyDetails = () => {
                                                        <p> Property Taxes</p>
                                                        <div className="flex items-center mt-3 gap-9">
                                                             <h1 className="text-xl text-white font-semibold"> $1,250 </h1>
-                                                            
+
                                                        </div>
                                                   </div>
                                                   <div className="border-l-4 border-base-100 pl-4">
@@ -318,7 +352,7 @@ const PropertyDetails = () => {
                                                        </div>
                                                   </div>
                                              </div>
-                                             
+
                                         </div>
                                    </div>
                               </div>
