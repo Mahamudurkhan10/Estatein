@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Components/Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-     const {googleLogin,user} = useContext(AuthContext)
+     const {googleLogin,user,SignIn} = useContext(AuthContext)
      const navigate = useNavigate()
      const location = useLocation()
      const form = location.state?.form?.pathname || "/";
@@ -12,6 +13,18 @@ const Login = () => {
           const email = e.target.email.value 
           const password = e.target.password.value 
           console.log(email,password);
+          SignIn(email,password )
+          .then(()=>{
+               return navigate(form,{replace: true})
+          })
+          .catch(error =>{
+               console.log("Error",error);
+               Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
+          })
      }
      const googleLogin2 =()=>{
           googleLogin()

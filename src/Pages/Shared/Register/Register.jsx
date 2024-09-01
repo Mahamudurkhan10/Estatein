@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Components/Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => { 
-     const {googleLogin,user} = useContext(AuthContext)
+     const {googleLogin,Register,updateUserProfile } = useContext(AuthContext)
      const navigate = useNavigate()
      const location = useLocation()
      const form = location.state?.form?.pathname || "/";
+     const currentDate =new Date() 
 const handleRegister = (e)=>{
      e.preventDefault()
    
@@ -15,6 +17,32 @@ const handleRegister = (e)=>{
      const email = e.target.email.value
      const password = e.target.password.value
      console.log(name,image,email,password);
+     Register(email,password)
+     .then(result =>{
+        
+          return updateUserProfile(name,photoURL)
+
+     })
+     navigate(form,{replace: true})
+     // .then(()=>{
+     //      const userInfo = {
+     //           name:name,
+     //           email:email,
+     //           photoURL:photoURL,
+     //           password:password,
+     //           role:"user",
+     //           creationDate : currentDate
+     //      }
+     //      return
+     // })
+     .catch(error =>{
+          console.log("Error",error);
+          Swal.fire({
+               icon: "error",
+               title: "Oops...",
+               text: "Something went wrong!",
+           });
+     })
      
 }
 const googleLogin2 =()=>{
