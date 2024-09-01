@@ -19,16 +19,18 @@ const Login = () => {
           })
           .catch(error =>{
                console.log("Error",error);
-               Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
+              
           })
      }
      const googleLogin2 =()=>{
           googleLogin()
-        navigate(form,{replace: true})
+          .then(()=>{
+               navigate(form,{replace: true})
+          })
+          .catch(error =>{
+               console.log(error);
+          })
+       
      }
      return (
           <div>

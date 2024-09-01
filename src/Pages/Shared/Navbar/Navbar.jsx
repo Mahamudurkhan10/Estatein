@@ -7,7 +7,7 @@ import { LuLogIn } from "react-icons/lu";
 const Navbar = () => {
      const { user, logOut } = useContext(AuthContext);
      const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  console.log(user);
      const signOut = () => {
           logOut();
           setDropdownOpen(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
      };
 
      const navItems = (
-          <div className="flex flex-col text-xl lg:flex-row gap-8">
+          <div className="flex flex-col text-lg lg:flex-row gap-8">
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/'}>Home</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/aboutUs'}>About Us</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/properties'}>Properties</NavLink>
@@ -32,7 +32,7 @@ const Navbar = () => {
 
           <>
 
-               <li> <NavLink className={"btn hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7] text-white "}> <a href=""> Dashboard </a> </NavLink> </li>
+               <li> <NavLink className={"btn hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7] text-white transition duration-500 ease-in-out "}> <a href=""> Dashboard </a> </NavLink> </li>
                <li><button onClick={signOut} className="btn bg-[#703bf7] hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7]  text-white flex items-center"><SlLogout />Logout</button></li>
           </>
      );
