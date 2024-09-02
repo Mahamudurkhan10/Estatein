@@ -7,7 +7,7 @@ import { LuLogIn } from "react-icons/lu";
 const Navbar = () => {
      const { user, logOut } = useContext(AuthContext);
      const [dropdownOpen, setDropdownOpen] = useState(false);
-  console.log(user);
+
      const signOut = () => {
           logOut();
           setDropdownOpen(false);
@@ -16,9 +16,13 @@ const Navbar = () => {
      const toggleDropdown = () => {
           setDropdownOpen(!dropdownOpen);
      };
-
+console.log(user?.
+     photoURL
+     );
      const navItems = (
           <div className="flex flex-col text-lg lg:flex-row gap-8">
+              
+          
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/'}>Home</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/aboutUs'}>About Us</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/properties'}>Properties</NavLink>

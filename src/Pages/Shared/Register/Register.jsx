@@ -29,8 +29,7 @@ const Register = () => {
                     const userInfo = {
                          name: name,
                          email: email,
-                         photoURL: photoURL,
-                         password: password,
+                         photoURL: photoURL,                       
                          role: "user",
                          creationDate: currentDate
                     }
@@ -62,9 +61,29 @@ const Register = () => {
      const googleLogin2 = () => {
           googleLogin()
           .then(result =>{
-               
+               console.log(result.user);
+               const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photoURL: result.user?.photoURL,
+                    role:"user",
+                    creationDate: currentDate
+               }
+               axios.post("http://localhost:5000/users",userInfo)
+               .then(res =>{
+                    if(res.data.insertedId){
+                         Swal.fire({
+                              position: "top-end",
+                              icon: "success",
+                              title: "Your Login success",
+                              showConfirmButton: false,
+                              timer: 1500
+                         });
+                         navigate(form,{replace:true})   
+                    }
+               })
           })
-          navigate(form, { replace: true })
+         
      }
      return (
           <div>
