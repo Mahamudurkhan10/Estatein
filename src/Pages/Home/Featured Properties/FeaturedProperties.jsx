@@ -91,7 +91,7 @@ const FeaturedProperties = () => {
             </Swiper>
           )}
           <div className=' bottom-0 right-0 flex items-center space-x-2 p-4'>
-            <span className='text-white'>
+            <span className='text-white'> 
              { currentIndex >= 9?
               <div> {currentIndex + 1} Of {properties.length}</div>:
               <div> 0 {currentIndex + 1} Of {properties.length}</div>

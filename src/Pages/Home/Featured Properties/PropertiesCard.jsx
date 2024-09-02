@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const PropertiesCard = ({ property }) => {
      const [isExpended, setIsExpended] = useState(false)
-     const { description } = property;
+     const { description,_id } = property;
      const newDescripton = `${description.slice(0, 70)}...`
      return (
           <div >
@@ -43,7 +43,7 @@ const PropertiesCard = ({ property }) => {
                                    <p className='text-gray-100 text-lg'>${property.price.toLocaleString()}</p>
                               </div>
 
-                              <NavLink to={`/propertyDetails`}><button className='btn  mt-2 text-white bg-[#703bf7] btn-primary'>View Details</button> </NavLink>
+                              <NavLink to={`/propertyDetails/${_id}`}><button className='btn  mt-2 text-white bg-[#703bf7] btn-primary'>View Details</button> </NavLink>
                          </div>
 
                     </div>

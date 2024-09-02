@@ -11,6 +11,7 @@ import Contact from "../Pages/Contact/Contact/Contact";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails/PropertyDetails";
 import Login from "../Pages/Shared/LogIn/Login";
 import Register from "../Pages/Shared/Register/Register";
+
 export const router = createBrowserRouter([
      {
           path: "/",
@@ -37,9 +38,9 @@ export const router = createBrowserRouter([
                     element:<Contact></Contact>
                },
                {
-                    path:'/propertyDetails',
+                    path:'/propertyDetails/:id',
                     element: <PropertyDetails> </PropertyDetails>,
-                    
+                    loader:({params}) => fetch(`http://localhost:5000/property/${params.id}`)
                },
                {
                     path:'/login',
@@ -48,7 +49,8 @@ export const router = createBrowserRouter([
                {
                     path:'/register',
                     element:<Register></Register>
-               }
+               },
+              
           ]
      },
 ]);

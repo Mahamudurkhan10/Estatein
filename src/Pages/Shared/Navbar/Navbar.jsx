@@ -37,7 +37,7 @@ console.log(user?.
           <>
 
                <li> <NavLink className={"btn hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7] text-white transition duration-500 ease-in-out "}> <a href=""> Dashboard </a> </NavLink> </li>
-               <li><button onClick={signOut} className="btn bg-[#703bf7] hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7]  text-white flex items-center"><SlLogout />Logout</button></li>
+               <li><button onClick={signOut} className="btn bg-[#703bf7] hover:bg-gradient-to-r from-[#605d69] to-[#703bf7]  text-white flex items-center"><SlLogout />Logout</button></li>
           </>
      );
 

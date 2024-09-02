@@ -2,15 +2,39 @@ import { FaBed } from "react-icons/fa";
 import AskQuestion from "../../Home/AskQuestion/AskQuestion";
 import ExtraSection from "../../Shared/ExtraSection/ExtraSection";
 import { IoFlashOutline } from "react-icons/io5";
-
+import { Carousel } from "react-responsive-carousel";
+import { useLoaderData } from "react-router-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { MdLocationPin } from "react-icons/md";
 
 
 const PropertyDetails = () => {
+     const property = useLoaderData()
+     const images = property?.image
+
      return (
           <div className="">
                <div>
-                    <div>
+                    <div className=" container  mx-auto ">
+                         <div className="max-w-[1400px] p-4  mx-auto">
+                              <div>
+                                   <div className="flex items-center  gap-6 mb-4">
+                                   <h1 className="text-3xl text-white font-semibold"> {property.title} </h1>
+                                    <p className="flex items-center gap-3 text-white font-medium p-2 border border-base-100"> <MdLocationPin></MdLocationPin> {property.location} </p>
+                                   </div>
+                                   
+                              </div>
+                              <Carousel className="">
 
+                                   {
+                                        images.map(img => {
+                                             return <div className="h-[500px] opacity-95">  
+                                                  <img src={img} alt="" className="h-full w-full object-cover" /> {/* Ensure image fills the div */}
+                                             </div>
+                                        })
+                                   }
+                              </Carousel>
+                         </div>
                     </div>
                     <div className="container mx-auto">
                          <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2   gap-4  mt-5">
