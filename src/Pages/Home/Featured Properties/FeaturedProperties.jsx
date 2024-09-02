@@ -15,7 +15,7 @@ const FeaturedProperties = () => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    fetch('/property.json')
+    fetch('http://localhost:5000/properties')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);

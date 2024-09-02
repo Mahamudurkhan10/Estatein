@@ -21,7 +21,7 @@ const DiscoverProperty = () => {
      const [location, setLocation] = useState('')
      console.log(location);
      useEffect(() => {
-          fetch('/property.json')
+          fetch('http://localhost:5000/properties')
                .then(res => {
                     if (!res.ok) {
                          throw new Error(`HTTP error! status: ${res.status}`);
