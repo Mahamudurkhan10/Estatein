@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Components/Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Login = () => {
      const {googleLogin,user,SignIn} = useContext(AuthContext)
@@ -22,15 +23,33 @@ const Login = () => {
               
           })
      }
-     const googleLogin2 =()=>{
+     const googleLogin2 = () => {
           googleLogin()
-          .then(()=>{
-               navigate(form,{replace: true})
+          .then(result =>{
+               console.log(result.user);
+               const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photoURL: result.user?.photoURL,
+                    role:"user",
+                    creationDate: new Date()
+               }
+               axios.post("http://localhost:5000/users",userInfo)
+               .then(res =>{
+                    if(res.data.insertedId){
+                         Swal.fire({
+                              position: "top-end",
+                              icon: "success",
+                              title: "Your Login success",
+                              showConfirmButton: false,
+                              timer: 1500
+                         });
+                         
+                    }
+               })
+               navigate(form,{replace:true})  
           })
-          .catch(error =>{
-               console.log(error);
-          })
-       
+         
      }
      return (
           <div>

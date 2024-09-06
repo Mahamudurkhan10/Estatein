@@ -11,6 +11,7 @@ import Contact from "../Pages/Contact/Contact/Contact";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails/PropertyDetails";
 import Login from "../Pages/Shared/LogIn/Login";
 import Register from "../Pages/Shared/Register/Register";
+import Dashboard from "../LayOut/Dashboard";
 
 export const router = createBrowserRouter([
      {
@@ -53,4 +54,11 @@ export const router = createBrowserRouter([
               
           ]
      },
+     {
+          path:'dashboard',
+          element: <Dashboard></Dashboard>,
+          children:[
+
+          ]
+     }
 ]);

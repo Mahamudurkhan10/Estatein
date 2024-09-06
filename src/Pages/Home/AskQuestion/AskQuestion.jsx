@@ -14,7 +14,7 @@ const AskQuestion = () => {
      const swiperRef = useRef(null);
 
      useEffect(() => {
-          fetch('question.json')
+          fetch('http://localhost:5000/question')
                .then(res => {
                     if (!res.ok) {
                          throw new Error(`HTTP error! status: ${res.status}`);

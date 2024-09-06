@@ -79,10 +79,12 @@ const Register = () => {
                               showConfirmButton: false,
                               timer: 1500
                          });
-                         navigate(form,{replace:true})   
+                          
                     }
                })
+               navigate(form,{replace:true})  
           })
+        
          
      }
      return (
