@@ -9,8 +9,8 @@ const Dashboard = () => {
      const handleNavItem = () => <>
           {
                Admin ? <div className="flex flex-col gap-5 lg:text-lg font-semibold text-blue-600">
-                    <li className="text-center text-3xl text-emerald-600 font-bold uppercase"> Admin Home </li>
-                    <li> <NavLink to="/dashboard/allUsers"> <FaUsers /> All Users </NavLink> </li>
+                    <li className="text-center text-3xl text-emerald-600 font-bold uppercase"> Admin Dashboard </li>
+                    <li> <NavLink to="/dashboard/adminHome"> <FaUsers /> Admin Home </NavLink> </li>
                     <li> <NavLink to="/dashboard/publishedSurvey"> <FaUsers /> Publish-UnPublish </NavLink> </li>
                     <li> <NavLink to="/dashboard/responseSurvey"> <FaUsers /> Responses Survey </NavLink> </li>
                     <li> <NavLink to="/dashboard/payment"> <MdPayment /> All Payments </NavLink> </li>
@@ -24,7 +24,7 @@ const Dashboard = () => {
      </>
      return (
           <div>
-               <div className="w-64  h-screen bg-gray-200">
+               <div className="w-64   h-screen bg-[#141414]">
                     <ul className="menu p-4 space-y-4">
                          {
                               handleNavItem()
