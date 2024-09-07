@@ -2,15 +2,18 @@ import React, { useContext } from "react";
 import { TfiStatsUp, TfiUser } from "react-icons/tfi";
 import { AuthContext } from "../../../../Components/Provider/AuthProvider";
 import { FaBookmark } from "react-icons/fa";
-import { PieChart, Pie, ResponsiveContainer, Tooltip, LabelList } from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Tooltip, LabelList, Cell, Legend } from "recharts";
 
-// Sample data for PieChart
+// Sample data for PieChart with different color schemes
 const pieData = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'Group A', value: 400, fill: "#8884d8" }, // Purple
+  { name: 'Group B', value: 300, fill: "#82ca9d" }, // Green
+  { name: 'Group C', value: 300, fill: "#ffc658" }, // Yellow
+  { name: 'Group D', value: 200, fill: "#ff7300" }, // Orange
 ];
+
+// Alternatively, you can define an array of colors:
+const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff7300"];
 
 const AdminHome = () => {
   const { user } = useContext(AuthContext);
@@ -67,32 +70,37 @@ const AdminHome = () => {
       {/* Recharts PieChart Section */}
       <div className="mt-10 p-5 bg-[#1f2937] rounded-lg">
         <h2 className="text-2xl font-semibold text-center text-white">Sales Distribution</h2>
-        <ResponsiveContainer width="100%" height={400}>
-          <PieChart>
-            <Pie
-              data={pieData}
-              dataKey="value"
-              nameKey="name"
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              fill="#8884d8"
-            >
-              {/* Customizing LabelList to display both name and value */}
-              <LabelList 
-                dataKey="value" 
-                position="inside" 
-                fill="#fff" 
-                formatter={(value, entry) => `${entry.name}: ${value}`} 
-              />
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
+        <div className="w-[1000px] h-[500px] mx-auto"> {/* Adjusted width and height */}
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={120} // Adjusted outer radius for better visual
+              >
+                {/* Loop through pieData and apply different colors */}
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+                {/* Customizing LabelList to display both name and value */}
+                <LabelList 
+                  dataKey="value" 
+                  position="inside" 
+                  fill="#fff" 
+                  formatter={(value, entry) => ` ${value}`} 
+                />
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </div>
   );
 };
 
 export default AdminHome;
- 
