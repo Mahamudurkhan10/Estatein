@@ -12,6 +12,7 @@ import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails/PropertyDe
 import Login from "../Pages/Shared/LogIn/Login";
 import Register from "../Pages/Shared/Register/Register";
 import Dashboard from "../LayOut/Dashboard";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 
 export const router = createBrowserRouter([
      {
@@ -58,7 +59,10 @@ export const router = createBrowserRouter([
           path:'dashboard',
           element: <Dashboard></Dashboard>,
           children:[
-
+               {
+                    path:'adminHome',
+                    element: <AdminHome></AdminHome>
+               }
           ]
      }
 ]);
