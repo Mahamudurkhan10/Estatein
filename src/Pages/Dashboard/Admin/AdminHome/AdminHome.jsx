@@ -1,23 +1,55 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { TfiStatsUp, TfiUser } from "react-icons/tfi";
 import { AuthContext } from "../../../../Components/Provider/AuthProvider";
 import { FaBookmark } from "react-icons/fa";
 import { PieChart, Pie, ResponsiveContainer, Tooltip, LabelList, Cell, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+import axios from "axios";
 
-// Sample data for PieChart with different color schemes
-const pieData = [
-  { name: 'Group A', value: 400, fill: "#8884d8" }, // Purple
-  { name: 'Group B', value: 300, fill: "#82ca9d" }, // Green
-  { name: 'Group C', value: 300, fill: "#ffc658" }, // Yellow
-  { name: 'Group D', value: 200, fill: "#ff7300" }, // Orange
-];
+const COLORS = ["#8884d8", "#FF8042", "#ffc658"];
+const barColors = ['#0088FE', '#FF8042', '#FFBB28'];
+const getPath = (x, y, width, height) => {
+  return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
+  ${x + width / 2}, ${y}
+  C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
+  Z`;
+};
+const TriangleBar = (props) => {
+  const { fill, x, y, width, height } = props;
 
-// Alternatively, you can define an array of colors:
-const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff7300"];
+  return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+};
 
 const AdminHome = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
+  const [dashboardData, setDashboardData] = useState({
+    totalUsers: 0,
+    totalSales: 0,
+    totalOrders: 0,
+    chartData: []
+  });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/dashboard");
+        setDashboardData(response.data);
+        console.log(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center text-white">Loading...</div>;
+  }
 
   return (
     <div className="">
@@ -44,7 +76,10 @@ const AdminHome = () => {
             <h1 className="text-3xl font-semibold text-gray-400">Total Sales</h1>
             <TfiStatsUp className="text-2xl text-yellow-600" />
           </div>
-          <h1 className="mt-5 text-2xl text-center font-semibold text-white">$ 1000</h1>
+          <h1 className="mt-5 text-2xl text-center font-semibold text-white">{dashboardData.totalSales}</h1>
+          <h1 className="mt-5 text-2xl text-center font-medium text-white"> Amount :  $1000 </h1>
+          
+
           <p className="text-center text-xl font-semibold text-blue-600 pt-5">increased by 60%</p>
         </div>
 
@@ -53,7 +88,7 @@ const AdminHome = () => {
             <h1 className="text-3xl font-semibold text-gray-400">Total Orders</h1>
             <FaBookmark className="text-2xl text-white" />
           </div>
-          <h1 className="mt-5 text-2xl text-center font-semibold text-white">10</h1>
+          <h1 className="mt-5 text-2xl text-center font-semibold text-white">{dashboardData.totalOrders}</h1>
           <p className="text-center text-xl font-semibold text-blue-600 pt-5">increased by 60%</p>
         </div>
 
@@ -62,45 +97,78 @@ const AdminHome = () => {
             <h1 className="text-3xl font-semibold text-gray-400">Total Users</h1>
             <TfiUser className="text-2xl text-yellow-600" />
           </div>
-          <h1 className="mt-5 text-2xl text-center font-semibold text-white">20</h1>
+          <h1 className="mt-5 text-2xl text-center font-semibold text-white">{dashboardData.totalUsers}</h1>
           <p className="text-center text-xl font-semibold text-blue-600 pt-5">increased by 60%</p>
         </div>
       </div>
 
       {/* Recharts PieChart Section */}
-      <div className="mt-10 p-5 bg-[#1f2937] rounded-lg">
-        <h2 className="text-2xl font-semibold text-center text-white">Sales Distribution</h2>
-        <div className="w-[1000px] h-[500px] mx-auto"> {/* Adjusted width and height */}
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={pieData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={120} // Adjusted outer radius for better visual
+    <div className="flex justify-between   gap-9  lg:m-[100px]">
+    <div className="mt-10 p-5 flex-1 bg-[#191919] rounded-lg">
+        <h2 className="text-2xl font-semibold text-center text-white">Overview of Total Users, Sales, and Orders</h2>
+        <div className="w-full h-[600px] mx-auto">
+          {dashboardData?.chartData?.length > 0 ? (
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie  
+                  data={dashboardData.chartData}
+                  dataKey="value"
+                  nameKey="name"    
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={200}
+                >
+                  {dashboardData.chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                  <LabelList dataKey="value" position="inside" fill="#fff" formatter={(value) => `${value}`} />
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="text-white text-center">No data available</div>
+          )}
+        </div>
+      </div>
+
+      {/* Recharts BarChart Section */}
+      <div className="mt-10  flex-1 p-5 bg-[#191919] rounded-lg">
+        <h2 className="text-2xl font-semibold text-center text-white">Bar Chart for Total Users, Sales, and Orders</h2>
+        <div className="w-full h-[500px] mx-auto">
+          {dashboardData.chartData.length > 0 ? (
+            <ResponsiveContainer >
+              <BarChart
+               width={500}
+               height={400}
+               data={dashboardData.chartData}
+               margin={{
+                 top: 20,
+                 right: 30,
+                 left: 20,
+                 bottom: 5,
+               }}
               >
-                {/* Loop through pieData and apply different colors */}
-                {pieData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-                {/* Customizing LabelList to display both name and value */}
-                <LabelList 
-                  dataKey="value" 
-                  position="inside" 
-                  fill="#fff" 
-                  formatter={(value, entry) => ` ${value}`} 
-                />
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
+                <CartesianGrid />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Bar dataKey="value" fill="#8884d8" shape={TriangleBar} label={{ position: 'top' }}>
+                  {dashboardData.chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="text-white text-center">No data available</div>
+          )}
         </div>
       </div>
     </div>
+    </div>
   );
 };
+
 
 export default AdminHome;
