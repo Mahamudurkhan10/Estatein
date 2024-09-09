@@ -52,7 +52,7 @@ const AdminHome = () => {
   }
 
   return (
-    <div className="">
+    <div className=" ">
       {/* User Info */}
       <div className="lg:flex  lg:w-1/2 mx-auto border-yellow-100 border-2 mt-5 p-5 gap-5">
         <div className="mb-4 md:mr-6 md:mb-0">
@@ -113,7 +113,7 @@ const AdminHome = () => {
       {/* Recharts PieChart Section */}
     <div className="lg:flex justify-between   gap-9  lg:m-[100px]">
     <div className="mt-10 p-5 flex-1 bg-[#191919] rounded-lg">
-        <h2 className="text-2xl font-semibold text-center text-white">Overview of Total Users, Sales, and Orders</h2>
+        <h2 className="text-2xl font-semibold text-center text-white">Overview of Total Users, Sales, Properties and Orders</h2>
         <div className="w-full h-[600px] mx-auto">
           {dashboardData?.chartData?.length > 0 ? (
             <ResponsiveContainer width="100%" height="100%">
@@ -144,7 +144,7 @@ const AdminHome = () => {
 
       {/* Recharts BarChart Section */}
       <div className="mt-10  flex-1 p-5 bg-[#191919] rounded-lg">
-        <h2 className="text-2xl font-semibold text-center text-white">Bar Chart for Total Users, Sales, and Orders</h2>
+        <h2 className="text-2xl font-semibold text-center text-white">Bar Chart for Total Users, Sales, Properties and Orders</h2>
         <div className="w-full h-[500px] mx-auto">
           {dashboardData.chartData.length > 0 ? (
             <ResponsiveContainer >

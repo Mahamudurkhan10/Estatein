@@ -14,7 +14,7 @@ import Register from "../Pages/Shared/Register/Register";
 import Dashboard from "../LayOut/Dashboard";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import ErrorPage from "../Components/ErorPage/ErrorPage";
-import OurProducts from "../Pages/Dashboard/Admin/OurProducts/OurProducts";
+import OurProducts from "../Pages/Dashboard/Admin/OurProperties/OurProperties";
 
 export const router = createBrowserRouter([
      {
@@ -60,6 +60,7 @@ export const router = createBrowserRouter([
      {
           path:'dashboard',
           element: <Dashboard></Dashboard>,
+          
           children:[
                {
                     path:'adminHome',

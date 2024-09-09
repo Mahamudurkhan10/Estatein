@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { FaBath, FaBed } from 'react-icons/fa'
-import { MdDelete, MdOutlineHomeWork, MdUpdate } from 'react-icons/md'
+import { GrDocumentUpdate } from 'react-icons/gr'
+import { MdDelete, MdLocationPin, MdOutlineHomeWork, MdUpdate } from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
 
-export default function OurProducts() {
+export default function ourProperties() {
      const [properties, setProperties] = useState([])
 
      useEffect(() => {
@@ -13,13 +14,15 @@ export default function OurProducts() {
      }, [])
      console.log(properties);
      return (
-          <div className='container mx-auto'>
-               <div className='grid grid-cols-4 gap-4'>
+          <div className='lg:ml-8'>
+               
+               <div className='grid grid-cols-1 lg:grid-cols-4 gap-1'>
                     {properties.map(property => <div key={property._id}>
                          <div className='   border-4 border-base-100'>
                               <img src={property.image} alt={property.title} className='w-full shadow-lg  transition-all duration-100 hover:scale-110  p-5 h-64 object-cover' />
                               <div className='p-4'>
-                                   <h3 className='text-xl font-bold'>{property.title}</h3>
+                                   <h3 className='text-2xl font-bold'>{property.title}  </h3>
+                                    <p className='text-[12px] flex items-center gap-2  p-1 mt-2 mb-2 bg-[#141414]'> <MdLocationPin className='text-xl text-yellow-600'></MdLocationPin>  {property.location} </p>
                                    <h1> {property.description.slice(0,70)}... </h1>
 
 
@@ -41,9 +44,9 @@ export default function OurProducts() {
 
                                         <NavLink to={`/propertyDetails/${property._id}`}><button className='btn  mt-2 text-white bg-[#703bf7] btn-primary'>View Details</button> </NavLink>
                                    </div>
-                                  <div>
-                                    <button className='btn '> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
-                                    <button>  </button>
+                                  <div className='flex justify-around mt-4'>
+                                    <button className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
+                                    <button className='btn text-white'> <GrDocumentUpdate className='text-blue-400 text-xl'> </GrDocumentUpdate> update </button>
                                   </div>
                               </div>
                          </div>
