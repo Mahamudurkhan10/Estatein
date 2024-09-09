@@ -54,7 +54,7 @@ const AdminHome = () => {
   return (
     <div className="">
       {/* User Info */}
-      <div className="flex border w-1/3 mx-auto mt-5 p-5 gap-5">
+      <div className="lg:flex  lg:w-1/2 mx-auto border-yellow-100 border-2 mt-5 p-5 gap-5">
         <div className="mb-4 md:mr-6 md:mb-0">
           <img
             className="h-56 rounded-lg object-cover md:w-56"
@@ -70,7 +70,7 @@ const AdminHome = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:m-[100px]">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:m-[100px]">
         <div className="bg-[#283350] p-5">
           <div className="text-xl flex justify-between">
             <h1 className="text-3xl font-semibold text-gray-400">Total Sales</h1>
@@ -100,10 +100,18 @@ const AdminHome = () => {
           <h1 className="mt-5 text-2xl text-center font-semibold text-white">{dashboardData.totalUsers}</h1>
           <p className="text-center text-xl font-semibold text-blue-600 pt-5">increased by 60%</p>
         </div>
+        <div className="bg-[#283350] p-5">
+          <div className="text-xl flex justify-between">
+            <h1 className="text-3xl font-semibold text-gray-400">Total Properties</h1>
+            <TfiUser className="text-2xl text-yellow-600" />
+          </div>
+          <h1 className="mt-5 text-2xl text-center font-semibold text-white">{dashboardData.totalProperties}</h1>
+          <p className="text-center text-xl font-semibold text-blue-600 pt-5">increased by 60%</p>
+        </div>
       </div>
 
       {/* Recharts PieChart Section */}
-    <div className="flex justify-between   gap-9  lg:m-[100px]">
+    <div className="lg:flex justify-between   gap-9  lg:m-[100px]">
     <div className="mt-10 p-5 flex-1 bg-[#191919] rounded-lg">
         <h2 className="text-2xl font-semibold text-center text-white">Overview of Total Users, Sales, and Orders</h2>
         <div className="w-full h-[600px] mx-auto">
@@ -117,6 +125,7 @@ const AdminHome = () => {
                   cx="50%"
                   cy="50%"
                   outerRadius={200}
+                  
                 >
                   {dashboardData.chartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

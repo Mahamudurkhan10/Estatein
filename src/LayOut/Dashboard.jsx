@@ -20,7 +20,7 @@ const Dashboard = () => {
                Admin ? <div className="flex flex-col gap-5 lg:text-lg font-semibold text-blue-600">
                     <li className="text-center text-3xl text-emerald-600 font-bold uppercase"> Admin Dashboard </li>
                     <li> <NavLink to="/dashboard/adminHome"> <FaUsers /> Admin Home </NavLink> </li>
-                    <li> <NavLink to="/dashboard/publishedSurvey"> <FaUsers /> Publish-UnPublish </NavLink> </li>
+                    <li> <NavLink to="/dashboard/ourProperties"> <FaUsers />Our Properties </NavLink> </li>
                     <li> <NavLink to="/dashboard/responseSurvey"> <FaUsers /> Responses Survey </NavLink> </li>
                     <li> <NavLink to="/dashboard/payment"> <MdPayment /> All Payments </NavLink> </li>
                </div> :
