@@ -15,6 +15,7 @@ import Dashboard from "../LayOut/Dashboard";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import ErrorPage from "../Components/ErorPage/ErrorPage";
 import OurProducts from "../Pages/Dashboard/Admin/OurProperties/OurProperties";
+import CreateProperty from "../Pages/Dashboard/Admin/OurProperties/CreateProperty";
 
 export const router = createBrowserRouter([
      {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
                },{
                     path:'ourProperties',
                     element: <OurProducts></OurProducts>
+               },
+               {
+                    path:'createProperty',
+                    element:<CreateProperty></CreateProperty>
                }
           ]
      },

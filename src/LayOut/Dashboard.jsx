@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { FaHome, FaUsers } from 'react-icons/fa';
+import { FaHome, FaLandmark, FaUsers } from 'react-icons/fa';
 import { MdDashboard, MdPayment, MdReportProblem } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Components/Provider/AuthProvider';
 import AdminHome from '../Pages/Dashboard/Admin/AdminHome/AdminHome';
+import { RiAdminFill } from 'react-icons/ri';
 
 const Dashboard = () => {
      const { logOut } = useContext(AuthContext);
@@ -23,8 +24,8 @@ const Dashboard = () => {
           return Admin ? (
                <div className="flex flex-col gap-5 lg:text-lg font-semibold text-blue-600">
                     <li className="text-center text-3xl text-emerald-600 font-bold uppercase">Admin Dashboard</li>
-                    <li><NavLink to="/dashboard/adminHome"><FaUsers /> Admin Home</NavLink></li>
-                    <li><NavLink to="/dashboard/ourProperties"><FaUsers />Our Properties</NavLink></li>
+                    <li><NavLink to="/dashboard/adminHome"><RiAdminFill /> Admin Home</NavLink></li>
+                    <li><NavLink to="/dashboard/ourProperties"><FaLandmark />Our Properties</NavLink></li>
                     <li><NavLink to="/dashboard/responseSurvey"><FaUsers /> Responses Survey</NavLink></li>
                     <li><NavLink to="/dashboard/payment"><MdPayment /> All Payments</NavLink></li>
                </div>
