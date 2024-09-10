@@ -17,27 +17,44 @@ export default function ourProperties() {
           e.preventDefault()
           setValue(e.target.search.value)
      }
-     
+
      const newProperties = value ? (properties.filter(p => p.title === value)) : properties;
      const handleDelete = async (id) => {
           try {
-               const res = await axiosPublic.delete(`/propertyDelete/${id}`)
-               if (res.data.deletedCount > 0) {
-                    refetch()
-                    Swal.fire({
-                         position: "top-end",
-                         icon: "success",
-                         title: "Your create success",
-                         showConfirmButton: false,
-                         timer: 1500
-                    });
+               Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+               }).then((result) => {
+                    if (result.isConfirmed) {
+                         axiosPublic.delete(`/propertyDelete/${id}`)
+                              .then(res => {
+                                   if (res.data.deletedCount > 0) {
+                                        refetch()
+                                        Swal.fire({
+                                             title: "Deleted!",
+                                             text: "Your file has been deleted.",
+                                             icon: "success"
+                                        });
+                                   }
 
-               }
-          } catch (error) {
-               console.log(error);
+                              })
 
+                    }
+               });
           }
-
+          catch (error) {
+               console.log(error);
+               Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Please try again.",
+               });
+          }
      }
      if (loading) {
           return <div className="flex flex-row justify-center space-x-4">
@@ -134,28 +151,28 @@ export default function ourProperties() {
                                    </div>
                               </div>
                          </div>
-                    </div>):<div className="lg:ml-6  lg:col-span-4 ">
+                    </div>) : <div className="lg:ml-6  lg:col-span-4 ">
                          <section className="  px-5 bg-white  dark:bg-[#191919]">
-                         <div className="">
-                              <div className=" text-center">
-                                   <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500 uppercase">
-                                       DATA Not found
-                                   </h1>
-                                   <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
-                                        Something's missing.
-                                   </p>
-                                   <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-                                        Sorry, we can't find that Data. You'll find lots to explore on the page.
-                                   </p>
-                                   <a href='/dashboard/ourProperties'
-                                       
-                                        className="inline-flex btn btn-info text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4"
-                                   >
-                                        Back to page
-                                   </a>
+                              <div className="">
+                                   <div className=" text-center">
+                                        <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500 uppercase">
+                                             DATA Not found
+                                        </h1>
+                                        <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
+                                             Something's missing.
+                                        </p>
+                                        <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
+                                             Sorry, we can't find that Data. You'll find lots to explore on the page.
+                                        </p>
+                                        <a href='/dashboard/ourProperties'
+
+                                             className="inline-flex btn btn-info text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4"
+                                        >
+                                             Back to page
+                                        </a>
+                                   </div>
                               </div>
-                         </div>
-                    </section>
+                         </section>
                     </div>}
                </div>
           </div>
