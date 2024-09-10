@@ -118,7 +118,7 @@ export default function ourProperties() {
                                    </div>
                                    <div className='flex justify-around mt-4'>
                                         <button onClick={()=>handleDelete(property._id)} className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
-                                        <button className='btn text-white'> <GrDocumentUpdate className='text-blue-400 text-xl'> </GrDocumentUpdate> update </button>
+                                        <Link to={`/dashboard/updateProperties/${property._id}`}><button className='btn text-white'> <GrDocumentUpdate className='text-blue-400 text-xl'> </GrDocumentUpdate> update </button></Link>
                                    </div>
                               </div>
                          </div>
