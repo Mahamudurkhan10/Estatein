@@ -1,56 +1,63 @@
 
 
 import axios from "axios";
-import { MdCreate } from "react-icons/md";
-import { useLocation, useNavigate } from "react-router-dom";
+import { MdCreate, MdUpdate } from "react-icons/md";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../../Components/Hooks/useAxiosPublic";
+import useProperties from "../../../../Components/Hooks/useProperties";
+import { GrDocumentUpdate } from "react-icons/gr";
 
 
 const UpdateProperties = () => {
-     const location = useLocation()
+     const axiosPublic = useAxiosPublic()
+     const [refetch] = useProperties()
+     const propertyData = useLoaderData()
+     const { _id, image, location, bathrooms, bedrooms, title, property_size, build_year, price, description } = propertyData;
+     const mainLocation = useLocation()
      const navigate = useNavigate()
-     const form = location.state?.form?.pathname || "/dashboard/ourProperties";
-     const handleCreate = async(e) => {
+     const form = mainLocation.state?.form?.pathname || "/dashboard/ourProperties";
+     const handleCreate = async (e) => {
           e.preventDefault()
-          const image1 = e.target.image1.value;
-          const image2 = e.target.image2.value;
-          const image3 = e.target.image3.value;
-          const image4 = e.target.image4.value;
-          const location = e.target.location.value;
-          const title = e.target.title.value;
-          const property_size = e.target.propertySize.value;
-          const build_year = e.target.buildYear.value;
-          const bathrooms = e.target.bathroom.value;
-          const bedrooms = e.target.bedroom.value;
-          const description = e.target.description.value;
-          const price = e.target.price.value;
+          const newImage2 = e.target.image2.value ? e.target.image2.value : image[0]
+          const newImage3 = e.target.image3.value ? e.target.image3.value : image[1]
+          const newImage1 = e.target.image1.value ? e.target.image1.value : image[2]
+          const newImage4 = e.target.image4.value ? e.target.image4.value : image[3]
+          const newLocation = e.target.location.value;
+          const newTitle = e.target.title.value;
+        const newProperty_size = e.target.propertySize.value ? e.target.propertySize.value:property_size; 
+          const newBuild_year = e.target.buildYear.value ? e.target.buildYear.value : build_year;
+          const newBathrooms = e.target.bathroom.value;
+          const newBedrooms = e.target.bedroom.value;
+          const newDescription = e.target.description.value ? e.target.description.value : description;
+          const newPrice = e.target.price.value ? e.target.price.value : price;
           const property = {
-               image:[image1,image2,image3,image4],
-               location,title,property_size:`${property_size} sqft`,build_year,bathrooms,bedrooms,description,price
+               image: [newImage1, newImage2, newImage3, newImage4], newLocation, newTitle, newPrice, newProperty_size, newBuild_year, newBathrooms, newBedrooms, newDescription
           }
-         
-         try {
-           const res = await axios.patch(`/propertyUpdate/${_id}`,property)
-           console.log(res);
-           if(res.data.insertedId){
-               Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your create success",
-                    showConfirmButton: false,
-                    timer: 1500
-               });
-               navigate(form,{replace:true})
+ console.log(property);
+          try {
+               const res = await axiosPublic.patch(`/propertyUpdate/${_id}`, property)
+               console.log(res);
+               if (res.data.modifiedCount > 0) {
+                   
+                    Swal.fire({
+                         position: "top-center",
+                         icon: "success",
+                         title: "Your update success",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
+                    navigate(form, { replace: true })
 
-           }
-         } catch (error) {
-          console.log(error);
-          Swal.fire({
-               icon: "error",
-               title: "Oops...",
-               text: "Something went wrong! Please try again.",
-          });
-         }
+               }
+          } catch (error) {
+               console.log(error);
+               Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Please try again.",
+               });
+          }
 
      }
      return (
@@ -68,7 +75,7 @@ const UpdateProperties = () => {
                                              <input
                                                   name="image1"
                                                   type="text"
-                                                  placeholder="image 1 here "
+                                                  placeholder={`${image[0]}`}
                                                   className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                              />
                                         </div>
@@ -80,7 +87,7 @@ const UpdateProperties = () => {
                                              <input
                                                   name="image2"
                                                   type="text"
-                                                  placeholder="image 2 here "
+                                                  placeholder={`${image[1]}`}
                                                   className="mt-2 px-4 py-2  bg-[#191919] shadow rounded"
                                              />
                                         </div>
@@ -92,7 +99,7 @@ const UpdateProperties = () => {
                                              <input
                                                   name="image3"
                                                   type="text"
-                                                  placeholder="image 3 here"
+                                                  placeholder={`${image[2]}`}
                                                   className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                              />
                                         </div>
@@ -104,7 +111,7 @@ const UpdateProperties = () => {
                                              <input
                                                   name="image4"
                                                   type="text"
-                                                  placeholder="image 4 here"
+                                                  placeholder={`${image[3]}`}
                                                   className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                              />
                                         </div>
@@ -117,7 +124,7 @@ const UpdateProperties = () => {
 
                                              </label>
                                              <select name="location" className="select bg-[#191919] mt-3 w-full max-w-xs">
-                                                  <option disabled selected>Select Your Location</option>
+                                                  <option disabled selected> {location} </option>
                                                   <option value={"321 Ocean Drive, Malibu, CA 90265, USA"}>321 Ocean Drive, Malibu, CA 90265, USA</option>
                                                   <option value={"789 Central Park West, New York, NY 10025, USA"}>789 Central Park West, New York, NY 10025, USA</option>
                                                   <option value={"456 Mountain Road, Asheville, NC 28801, USA"}>456 Mountain Road, Asheville, NC 28801, USA</option>
@@ -139,7 +146,7 @@ const UpdateProperties = () => {
 
                                              </label>
                                              <select name="title" className="select bg-[#191919] mt-3 w-full max-w-xs">
-                                                  <option disabled selected>Select Property Type</option>
+                                                  <option disabled selected>{title}</option>
                                                   <option value={"Seaside Serenity Villa"}>Seaside Serenity Villa</option>
                                                   <option value={"Metropolitan Haven"}>Metropolitan Haven</option>
                                                   <option value={"Rustic Retreat Cottage"}>Rustic Retreat Cottage</option>
@@ -160,7 +167,7 @@ const UpdateProperties = () => {
 
                                              </label>
                                              <select name="bathroom" className="select bg-[#191919] mt-3 w-full max-w-xs">
-                                                  <option disabled selected>Select  No. Of Bathrooms</option>
+                                                  <option disabled selected> {bathrooms} </option>
                                                   <option value={"1"}>1</option>
                                                   <option value={"2"}>2</option>
                                                   <option value={"3"}>3</option>
@@ -175,7 +182,7 @@ const UpdateProperties = () => {
 
                                              </label>
                                              <select name="bedroom" className="select bg-[#191919] mt-3  w-full max-w-xs">
-                                                  <option disabled selected>Select  No. Of Bedrooms</option>
+                                                  <option disabled selected> {bedrooms} </option>
                                                   <option value={"1"}>1</option>
                                                   <option value={"2"}>2</option>
                                                   <option value={"3"}>3</option>
@@ -194,7 +201,7 @@ const UpdateProperties = () => {
                                              <input
                                                   name="price"
                                                   type="number"
-                                                  placeholder="Enter your Price"
+                                                  placeholder={`${price}`}
                                                   className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                              />
                                         </div>
@@ -207,7 +214,7 @@ const UpdateProperties = () => {
                                                   name="buildYear"
                                                   type="number"
                                                   min={1990}
-                                                  placeholder="Enter your Build Year"
+                                                  placeholder={`${build_year}`}
                                                   className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                              />
                                         </div>
@@ -219,7 +226,7 @@ const UpdateProperties = () => {
                                              <input
                                                   name="propertySize"
                                                   type="number"
-                                                  placeholder="Enter your area"
+                                                  placeholder={property_size}
                                                   className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                                   min={1200}
                                              />
@@ -235,7 +242,7 @@ const UpdateProperties = () => {
                                         <textarea
                                              name="description"
                                              rows="5"
-                                             placeholder=""
+                                             placeholder={description}
                                              className="mt-2 bg-[#191919] text-white px-6 py-2 shadow rounded"
                                         ></textarea>
                                    </div>
@@ -246,7 +253,7 @@ const UpdateProperties = () => {
                                                   type="submit"
                                                   className="  bg-[#703bf7] rounded-xl  btn font-semibold text-white shadow hover:bg-blue-500"
                                              >
-                                                  Create <MdCreate className="text-yellow-300" />
+                                                  Update <GrDocumentUpdate className="text-yellow-300" />
                                              </button>
 
                                         </div>

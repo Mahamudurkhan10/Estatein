@@ -78,6 +78,7 @@ export const router = createBrowserRouter([
                {
                     path:'updateProperties/:id',
                     element: <UpdateProperties></UpdateProperties>,
+                    loader: ({params})=> fetch(`http://localhost:5000/propertyUp/${params.id}`)
                     
                     
                }
