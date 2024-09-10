@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
                     loader: ({params})=> fetch(`http://localhost:5000/propertyUp/${params.id}`)                              
                },
                {
-                 path:'allUser',
+                 path:'allUsers',
                  element:<ALLUsers></ALLUsers>
                }
           ]

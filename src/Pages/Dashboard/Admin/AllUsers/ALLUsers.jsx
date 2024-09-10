@@ -1,8 +1,39 @@
 import React from 'react';
 import useUsers from '../../../../Components/Hooks/useUsers';
+import { FaVoicemail } from 'react-icons/fa';
+import { MdEdit, MdEmail } from 'react-icons/md';
+import useAxiosPublic from '../../../../Components/Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const ALLUsers = () => {
+     const axiosPublic = useAxiosPublic()
      const [Users, refetch, loading] = useUsers()
+     console.log(Users);
+     const handleUserChange = async(e,id) =>{
+          e.preventDefault()
+          const role = e.target.change.value;
+          console.log(role);
+          try {
+               const res = await axiosPublic.patch(`/userUpdate/${id}`,{role})
+               if(res.data.modifiedCount >0){
+                    refetch()
+                    Swal.fire({
+                         position: "top-center",
+                         icon: "success",
+                         title: "Your update success",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
+               }
+          } catch (error) {
+               console.log(error);
+               Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Please try again.",
+               });
+          }
+     }
      if (loading) {
           return <div className="flex flex-row justify-center space-x-4">
                <div className="w-12 h-12 rounded-full animate-spin border border-dashed border-cyan-500 border-t-transparent"></div>
@@ -16,8 +47,37 @@ const ALLUsers = () => {
           </div>;
      }
      return (
-          <div className='lg:ml-8'>
+          <div className='  lg:pl-32 mt-5'>
+               <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 '>
+                    {
+                         Users.map(user => <div key={user._id}>
+                              <div className='border-2 border-blue-950 p-5  '>
+                                   <div className='p-4 border-2 border-base-100'>
+                                        <img src={user.photoURL
+                                        } alt="" className='size-[200px] mx-auto' />
 
+                                   </div>
+                                   <div>
+                                        <h1 className='text-center text-3xl font-semibold text-white'> {user.name} </h1>
+                                        <p className='flex items-center text-xl gap-1 justify-center py-3'> <MdEmail></MdEmail> {user.email} </p>
+                                        <h1 className='text-center text-3xl font-semibold mb-4 text-yellow-700'> {user.role} </h1>
+                                   </div>
+                                   <div className='text-center text-xl text-white font-semibold'>
+                                     <form onSubmit={(e)=>handleUserChange(e,user._id)} action="">
+                                     
+                                        <select name='change' className="select  bg-[#191919] ">
+                                             <option disabled selected > {user.role} </option>
+                                             <option>admin</option>
+                                             <option>user</option>
+                                        </select>
+                                        <input className='btn btn-info text-white rounded-full' type="submit" value="change role" />
+                                     </form>
+                                   </div>
+                              </div>
+
+                         </div>)
+                    }
+               </div>
           </div>
      );
 };
