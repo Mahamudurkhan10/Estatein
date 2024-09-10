@@ -1,10 +1,12 @@
+
+
 import axios from "axios";
 import { MdCreate } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const CreateProperty = () => {
+const UpdateProperties = () => {
      const location = useLocation()
      const navigate = useNavigate()
      const form = location.state?.form?.pathname || "/dashboard/ourProperties";
@@ -259,4 +261,4 @@ const CreateProperty = () => {
      );
 };
 
-export default CreateProperty;
+export default UpdateProperties;

@@ -13,6 +13,24 @@ export default function ourProperties() {
                .then(res => setProperties(res.data))
      }, [])
      console.log(properties);
+     const handleDelete = async (id) =>{
+          try {
+               const res = await axios.delete(`http://localhost:5000/propertyDelete/${id}`)
+               if(res.data.deletedCount >0){
+                    Swal.fire({
+                         position: "top-end",
+                         icon: "success",
+                         title: "Your create success",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
+               }
+          } catch (error) {
+               console.log(error);
+               
+          }
+          
+     }
      return (
           <div className='lg:ml-8 '>
                <div className='mb-9'>
@@ -87,7 +105,7 @@ export default function ourProperties() {
                                         <NavLink to={`/propertyDetails/${property._id}`}><button className='btn  mt-2 text-white bg-[#703bf7] btn-primary'>View Details</button> </NavLink>
                                    </div>
                                    <div className='flex justify-around mt-4'>
-                                        <button className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
+                                        <button onClick={()=>handleDelete(property._id)} className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
                                         <button className='btn text-white'> <GrDocumentUpdate className='text-blue-400 text-xl'> </GrDocumentUpdate> update </button>
                                    </div>
                               </div>
