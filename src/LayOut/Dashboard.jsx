@@ -26,7 +26,7 @@ const Dashboard = () => {
                     <li className="text-center text-3xl text-emerald-600 font-bold uppercase">Admin Dashboard</li>
                     <li><NavLink to="/dashboard/adminHome"><RiAdminFill /> Admin Home</NavLink></li>
                     <li><NavLink to="/dashboard/ourProperties"><FaLandmark />Our Properties</NavLink></li>
-                    <li><NavLink to="/dashboard/responseSurvey"><FaUsers /> Responses Survey</NavLink></li>
+                    <li><NavLink to="/dashboard/allUsers"><FaUsers /> ALL Users </NavLink></li>
                     <li><NavLink to="/dashboard/payment"><MdPayment /> All Payments</NavLink></li>
                </div>
           ) : (

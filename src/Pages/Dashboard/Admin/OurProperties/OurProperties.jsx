@@ -134,7 +134,7 @@ export default function ourProperties() {
                                    </div>
                               </div>
                          </div>
-                    </div>) : <div className="lg:ml-6  lg:col-span-4 ">
+                    </div>):<div className="lg:ml-6  lg:col-span-4 ">
                          <section className="  px-5 bg-white  dark:bg-[#191919]">
                          <div className="">
                               <div className=" text-center">

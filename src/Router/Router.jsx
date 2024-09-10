@@ -17,6 +17,7 @@ import ErrorPage from "../Components/ErorPage/ErrorPage";
 import OurProducts from "../Pages/Dashboard/Admin/OurProperties/OurProperties";
 import CreateProperty from "../Pages/Dashboard/Admin/OurProperties/CreateProperty";
 import UpdateProperties from "../Pages/Dashboard/Admin/OurProperties/UpdateProperties";
+import ALLUsers from "../Pages/Dashboard/Admin/AllUsers/ALLUsers";
 
 export const router = createBrowserRouter([
      {
@@ -78,9 +79,11 @@ export const router = createBrowserRouter([
                {
                     path:'updateProperties/:id',
                     element: <UpdateProperties></UpdateProperties>,
-                    loader: ({params})=> fetch(`http://localhost:5000/propertyUp/${params.id}`)
-                    
-                    
+                    loader: ({params})=> fetch(`http://localhost:5000/propertyUp/${params.id}`)                              
+               },
+               {
+                 path:'allUser',
+                 element:<ALLUsers></ALLUsers>
                }
           ]
      },
