@@ -14,7 +14,7 @@ export default function ourProperties() {
      }, [])
      console.log(properties);
      return (
-          <div className='lg:ml-8'>
+          <div className='lg:ml-8 '>
                <div className='mb-9'>
                     <h1 className='text-4xl text-[#703bf7] font-bold text-center'> Our Properties  </h1>
                </div>
@@ -48,7 +48,7 @@ export default function ourProperties() {
 
                     </div>
                     <div className='mr-6'>
-                         <div className="dropdown dropdown-down dropdown-end">
+                         <div className="dropdown lg:dropdown-down ">
                               <div tabIndex={0} role="button" className="btn text-white bg-[#703bf7] animate-pulse hover:text-white hover:font-bold hover:animate-none hover:bg-[#ab1ce4] m-1"> <MdCreate className='text-lg text-yellow-400'></MdCreate> Create  </div>
                               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                   <li> <Link to={'/dashboard/createProperty'} className='bg-primary text-white font-bold'> Create a property </Link> </li>
@@ -59,6 +59,7 @@ export default function ourProperties() {
                </div>
                <div className='grid grid-cols-1 lg:grid-cols-4 gap-1'>
                     {properties.map(property => <div key={property._id}>
+                         <h1>  </h1>
                          <div className='   border-4 border-base-100'>
                               <img src={property.image} alt={property.title} className='w-full shadow-lg  transition-all duration-100 hover:scale-110  p-5 h-64 object-cover' />
                               <div className='p-4'>
