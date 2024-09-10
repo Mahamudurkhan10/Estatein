@@ -30,7 +30,7 @@ const UpdateProperties = () => {
           }
          
          try {
-           const res = await axios.post("http://localhost:5000/properties",property)
+           const res = await axios.patch(`/propertyUpdate/${_id}`,property)
            console.log(res);
            if(res.data.insertedId){
                Swal.fire({

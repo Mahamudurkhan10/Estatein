@@ -2,9 +2,11 @@ import axios from "axios";
 import { MdCreate } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../../Components/Hooks/useAxiosPublic";
 
 
 const CreateProperty = () => {
+     const axiosPublic = useAxiosPublic()
      const location = useLocation()
      const navigate = useNavigate()
      const form = location.state?.form?.pathname || "/dashboard/ourProperties";
@@ -28,7 +30,7 @@ const CreateProperty = () => {
           }
          
          try {
-           const res = await axios.post("http://localhost:5000/properties",property)
+           const res = await axiosPublic.post("/properties",property)
            console.log(res);
            if(res.data.insertedId){
                Swal.fire({

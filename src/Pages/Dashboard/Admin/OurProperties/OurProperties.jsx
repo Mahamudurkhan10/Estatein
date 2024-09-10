@@ -4,19 +4,18 @@ import { FaBath, FaBed } from 'react-icons/fa'
 import { GrDocumentUpdate } from 'react-icons/gr'
 import { MdCreate, MdDelete, MdLocationPin, MdOutlineHomeWork, MdUpdate } from 'react-icons/md'
 import { Link, NavLink } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import useProperties from '../../../../Components/Hooks/useProperties'
+import useAxiosPublic from '../../../../Components/Hooks/useAxiosPublic'
 
 export default function ourProperties() {
-     const [properties, setProperties] = useState([])
-
-     useEffect(() => {
-          axios("http://localhost:5000/properties")
-               .then(res => setProperties(res.data))
-     }, [])
-     console.log(properties);
+    const [properties,refetch,loading] = useProperties()
+    const axiosPublic = useAxiosPublic()
      const handleDelete = async (id) =>{
           try {
-               const res = await axios.delete(`http://localhost:5000/propertyDelete/${id}`)
+               const res = await axiosPublic.delete(`/propertyDelete/${id}`)
                if(res.data.deletedCount >0){
+                    refetch()
                     Swal.fire({
                          position: "top-end",
                          icon: "success",
@@ -24,6 +23,7 @@ export default function ourProperties() {
                          showConfirmButton: false,
                          timer: 1500
                     });
+
                }
           } catch (error) {
                console.log(error);
@@ -31,6 +31,18 @@ export default function ourProperties() {
           }
           
      }
+     if (loading) {
+          return <div className="flex flex-row justify-center space-x-4">
+          <div className="w-12 h-12 rounded-full animate-spin border border-dashed border-cyan-500 border-t-transparent"></div>
+      
+          <div className="w-12 h-12 rounded-full animate-spin border-2 border-dashed border-indigo-500 border-t-transparent"></div>
+      
+          <div className="w-12 h-12 rounded-full animate-spin border-4 border-dashed border-pink-500 border-t-transparent"></div>
+      
+          <div className="w-12 h-12 rounded-full animate-spin border-8 border-dashed border-green-500 border-t-transparent">
+          </div>
+      </div>;
+        }
      return (
           <div className='lg:ml-8 '>
                <div className='mb-9'>
