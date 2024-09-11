@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaHome, FaLandmark, FaUsers } from 'react-icons/fa';
+import { FaHome, FaJediOrder, FaLandmark, FaUsers } from 'react-icons/fa';
 import { MdDashboard, MdPayment, MdReportProblem } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Dashboard = () => {
                     <li><NavLink to="/dashboard/adminHome"><RiAdminFill /> Admin Home</NavLink></li>
                     <li><NavLink to="/dashboard/ourProperties"><FaLandmark />Our Properties</NavLink></li>
                     <li><NavLink to="/dashboard/allUsers"><FaUsers /> ALL Users </NavLink></li>
-                    <li><NavLink to="/dashboard/payment"><MdPayment /> All Payments</NavLink></li>
+                    <li><NavLink to="/dashboard/makeOrder"><FaJediOrder /> Make Order </NavLink></li>
                </div>
           ) : (
                <div>

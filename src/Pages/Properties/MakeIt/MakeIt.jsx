@@ -28,8 +28,9 @@ const MakeIt = () => {
           }
           console.log(makeOrder);
           try {
-               const res = axiosPublic.post('/makeOrder',makeOrder)
-               if(res.data.insertedId){
+               const res = await axiosPublic.post('/makeOrder',makeOrder)
+               
+               if(res.data){
                      
                     Swal.fire({
                          position: "top-center",
@@ -46,7 +47,7 @@ const MakeIt = () => {
                     icon: "error",
                     title: "Oops...",
                     text: "Something went wrong! Please try again.",
-               });
+               });  
           }
      }
      return (

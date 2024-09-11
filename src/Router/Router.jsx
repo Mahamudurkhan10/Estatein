@@ -18,6 +18,7 @@ import OurProducts from "../Pages/Dashboard/Admin/OurProperties/OurProperties";
 import CreateProperty from "../Pages/Dashboard/Admin/OurProperties/CreateProperty";
 import UpdateProperties from "../Pages/Dashboard/Admin/OurProperties/UpdateProperties";
 import ALLUsers from "../Pages/Dashboard/Admin/AllUsers/ALLUsers";
+import MakeOrder from "../Pages/Dashboard/Admin/Make Order/MakeOrder";
 
 export const router = createBrowserRouter([
      {
@@ -84,6 +85,9 @@ export const router = createBrowserRouter([
                {
                  path:'allUsers',
                  element:<ALLUsers></ALLUsers>
+               },{
+                    path:'makeOrder',
+                    element:<MakeOrder></MakeOrder>
                }
           ]
      },
