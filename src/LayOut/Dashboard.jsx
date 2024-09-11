@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { FaHome, FaJediOrder, FaLandmark, FaShoppingCart, FaUsers } from 'react-icons/fa';
-import { MdDashboard, MdPayment, MdReportProblem } from 'react-icons/md';
+import { FaDiscourse, FaHome, FaJediOrder, FaLandmark, FaShoppingCart, FaUsers } from 'react-icons/fa';
+import { MdBorderOuter, MdDashboard, MdHome, MdPayment, MdReportProblem } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Components/Provider/AuthProvider';
@@ -30,10 +30,13 @@ const Dashboard = () => {
                     <li><NavLink to="/dashboard/makeOrder"><FaJediOrder /> Make Order </NavLink></li>
                </div>
           ) : (
-               <div>
-                    <li className="text-center text-2xl text-blue-900 font-bold">User Dashboard</li>
-                    <div className='divider'></div>
+               <div className='flex flex-col gap-3'>
+                    <li className="text-center text-2xl text-blue-300 font-bold">User Dashboard</li>
+                    
+                    <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/userHome"><MdHome size={25} /> User Home</NavLink></li>
                     <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/addCard"><FaShoppingCart /> Added Card</NavLink></li>
+                    <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/userMakeOrder"><MdBorderOuter /> Property Make Order </NavLink></li>
+                    <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/userPropertyDiscus"><FaDiscourse /> Property discus Order </NavLink></li>
                </div>
           );
      }

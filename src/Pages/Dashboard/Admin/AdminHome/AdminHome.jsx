@@ -5,6 +5,7 @@ import { FaBookmark } from "react-icons/fa";
 import { PieChart, Pie, ResponsiveContainer, Tooltip, LabelList, Cell, Legend } from "recharts";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import axios from "axios";
+import useUser from "../../../../Components/Hooks/useUser";
 
 const COLORS = ["#8884d8", "#FF8042", "#ffc658"];
 const barColors = ['#0088FE', '#FF8042', '#FFBB28'];
@@ -22,6 +23,7 @@ const TriangleBar = (props) => {
 
 const AdminHome = () => {
   const { user } = useContext(AuthContext);
+  const [User,refetch] = useUser()
 
   const [dashboardData, setDashboardData] = useState({
     totalUsers: 0,
@@ -67,13 +69,13 @@ const AdminHome = () => {
         <div className="mb-4 md:mr-6 md:mb-0">
           <img
             className="h-56 rounded-lg object-cover md:w-56"
-            src={user?.photoURL}
-            alt={user?.displayName}
+            src={User?.photoURL}
+            alt={User?.displayName}
           />
         </div>
         <div>
-          <h1 className="text-xl text-white">Name: {user?.displayName}</h1>
-          <h1 className="text-xl text-white">Email: {user?.email}</h1>
+          <h1 className="text-xl text-white">Name: {User?.displayName}</h1>
+          <h1 className="text-xl text-white">Email: {User?.email}</h1>
           <h1 className="text-4xl font-semibold text-center pt-5 text-[#703bf7]">Admin</h1>
         </div>
       </div>

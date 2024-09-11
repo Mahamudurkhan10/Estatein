@@ -20,6 +20,9 @@ import UpdateProperties from "../Pages/Dashboard/Admin/OurProperties/UpdatePrope
 import ALLUsers from "../Pages/Dashboard/Admin/AllUsers/ALLUsers";
 import MakeOrder from "../Pages/Dashboard/Admin/Make Order/MakeOrder";
 import AddCard from "../Pages/Dashboard/User/AddCard/AddCard";
+import UserHome from "../Pages/Dashboard/User/UserHome/UserHome";
+import UserMakeOrder from "../Pages/Dashboard/User/UserMakeOrder/UserMakeOrder";
+import UserPropertyDiscus from "../Pages/Dashboard/User/UserPropertyDiscus/UserPropertyDiscus";
 
 export const router = createBrowserRouter([
      {
@@ -86,12 +89,28 @@ export const router = createBrowserRouter([
                {
                  path:'allUsers',
                  element:<ALLUsers></ALLUsers>
-               },{
+               },
+               {
                     path:'makeOrder',
                     element:<MakeOrder></MakeOrder>
-               },{
+               }
+               ,
+               {
+                    path:'userHome',
+                    element:<UserHome></UserHome>
+               }
+               ,
+               {
+                    path:'userMakeOrder',
+                    element: <UserMakeOrder></UserMakeOrder>
+               }
+               ,
+               {
                     path:'addCard',
                     element:<AddCard></AddCard>
+               },{
+                    path:'userPropertyDiscus',
+                    element:<UserPropertyDiscus></UserPropertyDiscus>
                }
           ]
      },
