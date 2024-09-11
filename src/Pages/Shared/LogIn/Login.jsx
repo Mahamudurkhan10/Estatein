@@ -37,8 +37,8 @@ const Login = () => {
                axios.post("http://localhost:5000/users",userInfo)
                .then(res =>{
                     if(res.data.insertedId){
+                         position: "top-end",
                          Swal.fire({
-                              position: "top-end",
                               icon: "success",
                               title: "Your Login success",
                               showConfirmButton: false,

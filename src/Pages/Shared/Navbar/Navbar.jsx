@@ -55,7 +55,7 @@ console.log(user?.
                                    {navItems}
                               </ul>
                          </div>
-                         <NavLink to={'/'} className="btn btn-ghost text-xl">
+                         <NavLink to={'/'} className="btn btn-ghost text-xl animate-pulse">
                               <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" /> Estatein
                          </NavLink>
                     </div>
