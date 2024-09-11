@@ -3,17 +3,50 @@ import { FaBath, FaBed, FaChartArea } from "react-icons/fa";
 import ExtraSection from "../../Shared/ExtraSection/ExtraSection";
 import { IoFlashOutline } from "react-icons/io5";
 import { Carousel } from "react-responsive-carousel";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { MdLocationPin } from "react-icons/md";
 import Inquiry from "../PropertySection/Inquiry";
 import AskQuestion from "../../Home/AskQuestion/AskQuestion";
 
+import useAxiosPublic from "../../../Components/Hooks/useAxiosPublic";
+
 
 const PropertyDetails = () => {
      const property = useLoaderData()
+     const axiosPublic = useAxiosPublic()
      const images = property?.image
-console.log(property);
+     const location = useLocation()
+     const navigate = useNavigate()
+     const form = location.state?.form?.pathname || "/";
+    const handleCard = async ()=>{
+     try {
+          const res = await axiosPublic.post("/addCard",property)
+          console.log(res);
+          if(res.data.insertedId){
+              Swal.fire({
+                   position: "top-end",
+                   icon: "success",
+                   title: "Your create success",
+                   showConfirmButton: false,
+                   timer: 1500
+              });
+              navigate(form,{replace:true})
+
+          }
+        } catch (error) {
+         console.log(error);
+         Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong! Please try again.",
+         });
+        }
+        
+
+    }
+    
+    
      return (
           <div className="">
                <div>
@@ -21,19 +54,25 @@ console.log(property);
                          <div className="max-w-[1400px] p-4  mx-auto">
                               <div className="flex justify-between  mb-5">
                                    <div className="flex items-center  gap-6 ">
-                                   <h1 className="text-3xl text-white font-semibold"> {property.title} </h1>
-                                    <p className="flex items-center gap-3 text-white font-medium p-2 border border-base-100"> <MdLocationPin></MdLocationPin> {property.location} </p>
+                                        <h1 className="text-3xl text-white font-semibold"> {property.title} </h1>
+                                        <p className="flex items-center gap-3 text-white font-medium p-2 border border-base-100"> <MdLocationPin></MdLocationPin> {property.location} </p>
                                    </div>
-                                   <div>
+                                   <div className="flex items-center gap-2">
+                                        <button onClick={handleCard}
+                                             className="btn bg-[#703bf7] text-white rounded-full px-4 py-2 hover:bg-[#a18dcf]"
+                                             
+                                        >
+                                            Add to card
+                                        </button>
                                         <h1 className="text-lg"> Price </h1>
-                                         <p className="text-white  text-xl"> $ {property.price}  </p>
+                                        <p className="text-white  text-xl"> $ {property.price}  </p>
                                    </div>
                               </div>
                               <Carousel className="">
 
                                    {
                                         images.map(img => {
-                                             return <div className="h-[500px] opacity-95">  
+                                             return <div className="h-[500px] opacity-95">
                                                   <img src={img} alt="" className="h-full w-full object-cover" /> {/* Ensure image fills the div */}
                                              </div>
                                         })
@@ -76,9 +115,9 @@ console.log(property);
                          </div>
                     </div>
                </div>
-                  <div>
+               <div>
                     <Inquiry></Inquiry>
-                  </div>
+               </div>
                <div>
                     <div className="container mx-auto ">
                          <div className='max-w-[1400px] p-4 lg:p-0 mx-auto'>
@@ -268,7 +307,7 @@ console.log(property);
                          </div>
                     </div>
                </div>
-                <AskQuestion></AskQuestion>
+               <AskQuestion></AskQuestion>
                <ExtraSection></ExtraSection>
           </div>
      );
