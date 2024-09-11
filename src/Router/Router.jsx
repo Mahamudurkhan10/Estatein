@@ -19,6 +19,7 @@ import CreateProperty from "../Pages/Dashboard/Admin/OurProperties/CreatePropert
 import UpdateProperties from "../Pages/Dashboard/Admin/OurProperties/UpdateProperties";
 import ALLUsers from "../Pages/Dashboard/Admin/AllUsers/ALLUsers";
 import MakeOrder from "../Pages/Dashboard/Admin/Make Order/MakeOrder";
+import AddCard from "../Pages/Dashboard/User/AddCard/AddCard";
 
 export const router = createBrowserRouter([
      {
@@ -67,7 +68,7 @@ export const router = createBrowserRouter([
           
           children:[
                {
-                    path:'adminHome',
+                    path:'AdminHome',
                     element: <AdminHome></AdminHome>
                },{
                     path:'ourProperties',
@@ -88,6 +89,9 @@ export const router = createBrowserRouter([
                },{
                     path:'makeOrder',
                     element:<MakeOrder></MakeOrder>
+               },{
+                    path:'addCard',
+                    element:<AddCard></AddCard>
                }
           ]
      },

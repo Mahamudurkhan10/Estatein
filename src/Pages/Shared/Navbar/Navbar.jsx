@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Components/Provider/AuthProvider";
 import { SlLogout } from "react-icons/sl";
 import { LuLogIn } from "react-icons/lu";
+import { MdCardGiftcard } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
      const { user, logOut } = useContext(AuthContext);
@@ -64,8 +66,10 @@ console.log(user?.
                               {navItems}
                          </ul>
                     </div>
-                    <div className="navbar-end">
+                    <div className="navbar-end flex gap-3">
+                       <NavLink to={'/dashboard/addCard'}> <a> <FaShoppingCart size={20}></FaShoppingCart> </a> </NavLink>
                          <div className="dropdown dropdown-end">
+                             
                               {user ? (
                                    <div>
                                         <div

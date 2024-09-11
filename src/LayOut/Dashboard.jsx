@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaHome, FaJediOrder, FaLandmark, FaUsers } from 'react-icons/fa';
+import { FaHome, FaJediOrder, FaLandmark, FaShoppingCart, FaUsers } from 'react-icons/fa';
 import { MdDashboard, MdPayment, MdReportProblem } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Dashboard = () => {
           navigate(form, { replace: true });
      }
 
-     const Admin = true; // Adjust based on your logic to check for admin roles
+     const Admin = false; // Adjust based on your logic to check for admin roles
 
      const handleNavItem = () => {
           return Admin ? (
@@ -32,7 +32,8 @@ const Dashboard = () => {
           ) : (
                <div>
                     <li className="text-center text-2xl text-blue-900 font-bold">User Dashboard</li>
-                    <li><NavLink className="text-yellow-700 text-lg font-semibold" to="/dashboard/userReport"><MdReportProblem /> User Report</NavLink></li>
+                    <div className='divider'></div>
+                    <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/addCard"><FaShoppingCart /> Added Card</NavLink></li>
                </div>
           );
      }
