@@ -10,43 +10,70 @@ import Inquiry from "../PropertySection/Inquiry";
 import AskQuestion from "../../Home/AskQuestion/AskQuestion";
 
 import useAxiosPublic from "../../../Components/Hooks/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../../Components/Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const PropertyDetails = () => {
      const property = useLoaderData()
+     const { user } = useContext(AuthContext)
      const axiosPublic = useAxiosPublic()
      const images = property?.image
      const location = useLocation()
      const navigate = useNavigate()
      const form = location.state?.form?.pathname || "/";
-    const handleCard = async ()=>{
-     try {
-          const res = await axiosPublic.post("/addCard",property)
-          console.log(res);
-          if(res.data.insertedId){
-              Swal.fire({
-                   position: "top-end",
-                   icon: "success",
-                   title: "Your create success",
-                   showConfirmButton: false,
-                   timer: 1500
-              });
-              navigate(form,{replace:true})
+     const newProperty = {
+          image: property?.image,
+          location : property.location,
+           title :property.title,
+            property_size:property.property_size,
+             build_year: property.build_year,
+              bathrooms :property.bathrooms,
+               bedrooms :property.bedrooms, 
+               description : property.description,
+                price :property.price,
+                email:user?.email,
+                id : property._id
 
+     }
+     const handleCard = async () => {
+          try {
+               const res = await axiosPublic.post("/addCard",newProperty)
+               console.log(res);
+               if (res.data.insertedId) {
+                    Swal.fire({
+                         position: "top-end",
+                         icon: "success",
+                         title: "Your create success",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
+                    navigate(form, { replace: true })
+
+               }
+               else if (res.data.insertedId === null){
+                    Swal.fire({
+                         position: "top-end",
+                         icon: "error",
+                         title: "Your property already exist ",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
+               }
+          } catch (error) {
+               console.log(error);
+               Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Please try again.",
+               });
           }
-        } catch (error) {
-         console.log(error);
-         Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Something went wrong! Please try again.",
-         });
-        }
-        
 
-    }
-    
-    
+
+     }
+
+
      return (
           <div className="">
                <div>
@@ -60,9 +87,9 @@ const PropertyDetails = () => {
                                    <div className="flex items-center gap-2">
                                         <button onClick={handleCard}
                                              className="btn bg-[#703bf7] text-white rounded-full px-4 py-2 hover:bg-[#a18dcf]"
-                                             
+
                                         >
-                                            Add to card
+                                             Add to card
                                         </button>
                                         <h1 className="text-lg"> Price </h1>
                                         <p className="text-white  text-xl"> $ {property.price}  </p>
