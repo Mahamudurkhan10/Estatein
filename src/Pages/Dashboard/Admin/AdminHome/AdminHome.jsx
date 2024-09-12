@@ -76,7 +76,7 @@ const AdminHome = () => {
         <div>
           <h1 className="text-xl text-white">Name: {User?.displayName}</h1>
           <h1 className="text-xl text-white">Email: {User?.email}</h1>
-          <h1 className="text-4xl font-semibold text-center pt-5 text-[#703bf7]">Admin</h1>
+          <h1 className="text-4xl font-semibold text-center pt-5 text-[#703bf7]"> {User?.role} </h1>
         </div>
       </div>
 

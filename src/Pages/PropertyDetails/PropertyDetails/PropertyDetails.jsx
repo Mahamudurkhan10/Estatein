@@ -124,7 +124,7 @@ const PropertyDetails = () => {
                                         </div>
                                         <div className="border-l-2 border-base-100 px-3">
                                              <h1 className="flex items-center gap-3"> <FaChartArea></FaChartArea> Area </h1>
-                                             <h1 className="text-xl text-white"> 0 {property.property_size} </h1>
+                                             <h1 className="text-xl text-white">  {property.property_size} sqft </h1>
                                         </div>
                                    </div>
 
