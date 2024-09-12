@@ -23,6 +23,7 @@ import AddCard from "../Pages/Dashboard/User/AddCard/AddCard";
 import UserHome from "../Pages/Dashboard/User/UserHome/UserHome";
 import UserMakeOrder from "../Pages/Dashboard/User/UserMakeOrder/UserMakeOrder";
 import UserPropertyDiscus from "../Pages/Dashboard/User/UserPropertyDiscus/UserPropertyDiscus";
+import Payment from "../Pages/Dashboard/User/AddCard/Payment";
 
 export const router = createBrowserRouter([
      {
@@ -61,7 +62,10 @@ export const router = createBrowserRouter([
                {
                     path:'/register',
                     element:<Register></Register>
-               },
+               },{
+                    path:'/payment',
+                    element:<Payment></Payment>
+               }
               
           ]
      },
