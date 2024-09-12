@@ -127,7 +127,7 @@ const PropertyDetails = () => {
                                              <h1 className="text-xl text-white">  {property.property_size} sqft </h1>
                                         </div>
                                    </div>
-<h1> hii </h1>
+<h1> hii  </h1>
                               </div>
                               <div className="border p-6 border-base-100">
                                    <h1 className="text-xl text-white "> Key Features and Amenities </h1>
