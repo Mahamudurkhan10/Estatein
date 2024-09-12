@@ -1,7 +1,51 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Components/Provider/AuthProvider';
+import Swal from 'sweetalert2';
+import useAxiosPublic from '../../../Components/Hooks/useAxiosPublic';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Inquiry = () => {
+     const {user} = useContext(AuthContext)
+     const axiosPublic = useAxiosPublic()
+     const location = useLocation()
+     const navigate = useNavigate()
+     const form = location.state?.status?.pathName ||'/'
+     const handlePriceOrder= async(e) =>{
+          e.preventDefault()
+          const firstName = e.target.firstName.value;
+          const lastName = e.target.lastName.value;
+          const email = e.target.email.value?e.target.email.value : user?.email;
+          const phone = e.target.phone.value;
+          const buGet = e.target.buGet.value;
+          const message = e.target.message.value;
+          const priceOrder = {
+               name:`${firstName} ${lastName}`,email,phone,buGet,message
+          }
+          console.log(priceOrder);
+          try {
+               const res = await axiosPublic.post("/priceOrder",priceOrder)
+               console.log(res);
+               if(res.data.insertedId){
+                   Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your create success",
+                        showConfirmButton: false,
+                        timer: 1500
+                   });
+                   navigate(form,{replace:true})
+    
+               }
+             } catch (error) {
+              console.log(error);
+              Swal.fire({
+                   icon: "error",
+                   title: "Oops...",
+                   text: "Something went wrong! Please try again.",
+              });
+             }
+     }
      return (
           <div>
                <div className="mt-9">
@@ -24,7 +68,7 @@ const Inquiry = () => {
                               <div className="w-full">
                                    <div className=" ">
                                         <div className="p-10 border-2 border-base-100 mt-5 rounded shadow-sm ">
-                                             <form>
+                                             <form onSubmit={handlePriceOrder}>
                                                   <div className="grid grid-cols-2 lg:grid-cols-2  gap-6">
                                                        <div className="flex flex-col mb-4">
                                                             <label>
@@ -32,6 +76,7 @@ const Inquiry = () => {
 
                                                             </label>
                                                             <input
+                                                                 name='firstName'
                                                                  type="text"
                                                                  placeholder="Enter  Your First Name"
                                                                  className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
@@ -43,6 +88,7 @@ const Inquiry = () => {
 
                                                             </label>
                                                             <input
+                                                            name='lastName'
                                                                  type="text"
                                                                  placeholder="Enter Your Last Name "
                                                                  className="mt-2 px-4 py-2  bg-[#191919] shadow rounded"
@@ -54,8 +100,10 @@ const Inquiry = () => {
 
                                                             </label>
                                                             <input
+                                                            name='email'
                                                                  type="email"
-                                                                 placeholder="Enter your Email"
+                                                                 
+                                                                 placeholder={`${user?.email}`}
                                                                  className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
                                                             />
                                                        </div>
@@ -65,6 +113,7 @@ const Inquiry = () => {
 
                                                             </label>
                                                             <input
+                                                                name='phone'
                                                                  type="number"
                                                                  placeholder="Enter your Number"
                                                                  className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
@@ -79,11 +128,14 @@ const Inquiry = () => {
                                                                  Buget
 
                                                             </label>
-                                                            <select className="select bg-[#191919]  mt-5  w-full ">
-                                                                 <option disabled selected>Select  No. Of Bedrooms</option>
-                                                                 <option>Han Solo</option>
-                                                                 <option>Greedo</option>
-                                                            </select>
+                                                            <input
+                                                              min={100000}
+                                                                name='buGet'
+                                                                
+                                                                 type="text"
+                                                                 placeholder="Enter your buGet"
+                                                                 className="mt-2 px-4 py-2 bg-[#191919] shadow rounded"
+                                                            />
                                                        </div>
 
                                                   </div>
@@ -94,6 +146,7 @@ const Inquiry = () => {
 
                                                        </label>
                                                        <textarea
+                                                       name='message'
                                                             rows="5"
                                                             placeholder=""
                                                             className="mt-2 bg-[#191919] text-white px-6 py-2 shadow rounded"
@@ -102,8 +155,8 @@ const Inquiry = () => {
                                                   <div className="flex justify-between flex-col gap-5 lg:flex-row">
                                                        <div className="form-control flex flex-row items-center gap-3">
 
-                                                            <input type="checkbox" className="checkbox" />
-                                                            <label className="label ">
+                                                            <input required type="checkbox" className="checkbox" />
+                                                            <label  className="label ">
                                                                  I agree with Terms of Use and Privacy Policy
 
                                                             </label>
