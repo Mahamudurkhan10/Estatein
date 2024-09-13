@@ -3,18 +3,22 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../../Components/Provider/AuthProvider";
 import useAxiosPublic from "../../../../Components/Hooks/useAxiosPublic";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const PaymentForm = () => {
+const PaymentForm = ({property}) => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState();
     const [loading, setLoading] = useState(false);
     const stripe = useStripe();
+    const location = useLocation()
+    const navigate = useNavigate()
+    const form= location.state?.status?.pathName||'/dashboard/addCard'
     const elements = useElements();
     const axiosPublic = useAxiosPublic();
     const { user } = useContext(AuthContext);
-    const price = 79;
-
+    const price = property.price;
+    console.log(property);
     useEffect(() => {
         axiosPublic.post('/create-payment-intent', { price })
             .then(res => {
@@ -63,6 +67,10 @@ const PaymentForm = () => {
                 price,
                 transactionId: paymentIntent.id,
                 date: new Date(),
+                PropertyTitle : property.title,
+                id : property._id,
+                image: property.image,
+
             };
 
             const res = await axiosPublic.post('/payments', payment);
@@ -74,7 +82,17 @@ const PaymentForm = () => {
                     showConfirmButton: false,
                     timer: 1500,
                 });
-            }
+                navigate(form,{replace:true})
+            }  else if (res.data.insertedId === null){
+                    Swal.fire({
+                         position: "top-end",
+                         icon: "error",
+                         title: "Your Payment  already done ",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
+                    navigate(form,{replace:true})
+               }
         }
 
         setLoading(false);
@@ -84,6 +102,7 @@ const PaymentForm = () => {
         <div>
             <h1 className="text-4xl text-cyan-500 text-center mb-5"> Payment </h1>
             <div className="lg:w-3/4 mx-auto card p-12">
+            <h1 className="text-2xl font-semibold text-blue-700 mb-4"> Price : ${property.price}</h1>
                 <form className="ml-12" onSubmit={handleSubmit}>
                     <CardElement
                         options={{

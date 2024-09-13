@@ -62,11 +62,7 @@ export const router = createBrowserRouter([
                {
                     path:'/register',
                     element:<Register></Register>
-               },{
-                    path:'/payment',
-                    element:<Payment></Payment>
-               }
-              
+               },
           ]
      },
      {
@@ -115,7 +111,12 @@ export const router = createBrowserRouter([
                },{
                     path:'userPropertyDiscus',
                     element:<UserPropertyDiscus></UserPropertyDiscus>
+               },{
+                    path:'payment/:id',
+                    element:<Payment></Payment>,
+                    loader:({params})=> fetch(`http://localhost:5000/addCards/${params.id}`)
                }
+              
           ]
      },
      {

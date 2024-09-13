@@ -136,7 +136,7 @@ const AddCard = () => {
                                    </div>
                                    <div className='flex justify-around mt-4'>
                                         <button onClick={() => handleDelete(property._id)} className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
-                                        <NavLink to={'/payment'}><button className="btn btn-error text-white animate-bounce"> Buy Now </button></NavLink>
+                                        <NavLink to={`/dashboard/payment/${property._id}`}><button className="btn btn-error text-white animate-bounce"> Buy Now </button></NavLink>
                                    </div>
                               </div>
                          </div>
