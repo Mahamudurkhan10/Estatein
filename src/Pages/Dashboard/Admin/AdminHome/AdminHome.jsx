@@ -7,6 +7,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import axios from "axios";
 import useUser from "../../../../Components/Hooks/useUser";
 import usePayments from "../../../../Components/Hooks/usePayments";
+import useAxiosSecure from "../../../../Components/Hooks/useAxiosSecure";
 
 const COLORS = ["#8884d8", "#FF8042", "#ffc658"];
 const barColors = ['#0088FE', '#FF8042', '#FFBB28'];
@@ -25,7 +26,9 @@ const TriangleBar = (props) => {
 const AdminHome = () => {
   const { user } = useContext(AuthContext);
   const [payments] = usePayments()
+  const axiosSecure = useAxiosSecure()
   const [User, refetch] = useUser()
+  
   const totalSum = payments.reduce((acc, current) => acc + (current.price), 0);
   const [dashboardData, setDashboardData] = useState({
     totalUsers: 0,
@@ -38,7 +41,7 @@ const AdminHome = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/dashboard");
+        const response = await axiosSecure.get("http://localhost:5000/api/dashboard");
         setDashboardData(response.data);
         console.log(response.data);
         setLoading(false);

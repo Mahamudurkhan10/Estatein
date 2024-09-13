@@ -5,11 +5,13 @@ import { SlLogout } from "react-icons/sl";
 import { LuLogIn } from "react-icons/lu";
 import { MdCardGiftcard } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
+import useAddCards from "../../../Components/Hooks/useAddCards";
+import { TiShoppingCart } from "react-icons/ti";
 
 const Navbar = () => {
      const { user, logOut } = useContext(AuthContext);
      const [dropdownOpen, setDropdownOpen] = useState(false);
-
+     const [addCards,refetch] = useAddCards()
      const signOut = () => {
           logOut();
           setDropdownOpen(false);
@@ -67,7 +69,7 @@ console.log(user?.
                          </ul>
                     </div>
                     <div className="navbar-end flex gap-3">
-                       <NavLink to={'/dashboard/addCard'}> <a> <FaShoppingCart size={20}></FaShoppingCart> </a> </NavLink>
+                       <NavLink to={'/dashboard/addCard'}> <a className="relative"> <TiShoppingCart size={20}></TiShoppingCart> </a> <span className="absolute -mt-10 ml-4 text-blue-600 text-lg font-bold">{addCards.length}</span> </NavLink>
                          <div className="dropdown dropdown-end">
                              
                               {user ? (

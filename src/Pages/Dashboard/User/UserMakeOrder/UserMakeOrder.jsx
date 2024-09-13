@@ -6,6 +6,7 @@ import { GoX } from 'react-icons/go';
 
 export default function UserMakeOrder() {
      const [userMakeOrders,refetch, loading] = useUserMakeOrders()
+     console.log(userMakeOrders);
      
      if (loading) {
           return <div className="flex flex-row justify-center space-x-4">

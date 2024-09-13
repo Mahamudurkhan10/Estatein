@@ -11,6 +11,7 @@ const useUser = () => {
           queryFn: async () => {
             const res = await axiosPublic.get(`/users/${user?.email}`);
             return res.data;
+            
           }
         });
         return [User,refetch,loading]

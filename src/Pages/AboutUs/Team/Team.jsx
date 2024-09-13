@@ -6,25 +6,25 @@ import { PiHandWavingLight } from 'react-icons/pi';
 const Teams = [
   {
     id: 1,
-    image: "https://i.ibb.co/4RDTwgW/lovepik-young-boys-studying-office-image-picture-501705104.jpg",
+    image: "https://i.ibb.co.com/Wz5nMks/Image-10.png",
     name: "Max Mitchell",
     title: "Founder"
   },
   {
     id: 2,
-    image: "https://i.ibb.co/4RDTwgW/lovepik-young-boys-studying-office-image-picture-501705104.jpg",
+    image: "https://i.ibb.co.com/FYyM0nJ/Image-11.png",
     name: "Sarah Johnson",
     title: "Chief Real Estate Officer"
   },
   {
     id: 3,
-    image: "https://i.ibb.co/4RDTwgW/lovepik-young-boys-studying-office-image-picture-501705104.jpg",
+    image: "https://i.ibb.co.com/NVbrR1Z/Image-12.png",
     name: "David Brown",
     title: "Head of Property Management"
   },
   {
     id: 4,
-    image: "https://i.ibb.co/4RDTwgW/lovepik-young-boys-studying-office-image-picture-501705104.jpg",
+    image: "https://i.ibb.co.com/BVtpHzS/Image-13.png",
     name: "Michael Turner",
     title: "Legal Counsel"
   },

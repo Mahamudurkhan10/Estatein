@@ -13,6 +13,7 @@ import useAxiosPublic from "../../../Components/Hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../../Components/Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAddCards from "../../../Components/Hooks/useAddCards";
 
 
 const PropertyDetails = () => {
@@ -21,6 +22,7 @@ const PropertyDetails = () => {
      const axiosPublic = useAxiosPublic()
      const images = property?.image
      const location = useLocation()
+     const [addCards,refetch] = useAddCards()
      const navigate = useNavigate()
      const form = location.state?.form?.pathname || "/";
      const newProperty = {
@@ -42,6 +44,7 @@ const PropertyDetails = () => {
                const res = await axiosPublic.post("/addCard",newProperty)
                console.log(res);
                if (res.data.insertedId) {
+                    refetch()
                     Swal.fire({
                          position: "top-end",
                          icon: "success",

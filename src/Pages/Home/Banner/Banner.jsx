@@ -1,7 +1,9 @@
 
 import { NavLink } from 'react-router-dom';
 import './Banner.css'
+import useUser from '../../../Components/Hooks/useUser';
 const Banner = () => {
+     const [User] = useUser()
      return (
           <div className="bg-[#141414]  ">
                <div className=" container mx-auto  mt-5 ">
@@ -22,7 +24,8 @@ const Banner = () => {
                          </div>
 
                          <div className=" lg:ml-[60px] px-2 py-5 lg:py-[200px]">
-                              <h1 className="text-3xl lg:text-4xl lg:w-4/5  text-white font-bold">Discover Your Dream Property with Estatein</h1>
+                              <h1 className="text-3xl lg:text-4xl lg:w-4/5  text-white font-semibold">Discover Your Dream Property with Estatein</h1>
+                             
                               <p className=" mt-2 lg:w-2/3">
                                    our journey to finding the perfect property begins here. Explore our listings to find the home that matches your dreams.
                               </p>

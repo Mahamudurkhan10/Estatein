@@ -6,7 +6,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 const useUserMakeOrders = () => {
      const axiosPublic = useAxiosPublic()
      const {user} = useContext(AuthContext)
-     const { refetch, data: userMakeOrders = [],isPending:loading } = useQuery({
+     const { refetch, data: userMakeOrders =[],isPending:loading } = useQuery({
           queryKey: ['makeOrder',user?.email],
           queryFn: async () => {
             const res = await axiosPublic.get(`/makeOrder/${user?.email}`);

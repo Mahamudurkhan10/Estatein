@@ -79,16 +79,24 @@ const DiscoverProperty = () => {
                             </label>
                         </form>
                     </div>
-                    <div className='grid grid-cols-2 lg:grid-cols-5 gap-4 lg:w-3/4 bg-[#191919] p-4 mx-auto'>
+                    <div className='grid grid-cols-2 mt-5 lg:grid-cols-5 gap-4 lg:w-3/4 bg-[#191919] p-4 mx-auto'>
                         <div>
                             <label htmlFor="location" className='flex items-center gap-3'>
                                 <CiLocationOn className='text-2xl' />
                                 <select name="location" className="select select-bordered w-full max-w-xs" onChange={handleFilterChange}>
                                     <option value="">Your Location</option>
-                                    {/* Add more location options here */}
-                                    <option value="321 Ocean Drive, Malibu, CA 90265, USA">321 Ocean Drive, Malibu, CA 90265, USA</option>
-                                    <option value="789 Central Park West, New York, NY 10025, USA">789 Central Park West, New York, NY 10025, USA</option>
-                                    {/* Add more options as needed */}
+                                    <option value={"321 Ocean Drive, Malibu, CA 90265, USA"}>321 Ocean Drive, Malibu, CA 90265, USA</option>
+                                                  <option value={"789 Central Park West, New York, NY 10025, USA"}>789 Central Park West, New York, NY 10025, USA</option>
+                                                  <option value={"456 Mountain Road, Asheville, NC 28801, USA"}>456 Mountain Road, Asheville, NC 28801, USA</option>
+                                                  <option value={"123 Maple Street, Springfield, IL 62704, USA"}>123 Maple Street, Springfield, IL 62704, USA</option>
+                                                  <option value={"456 Oak Avenue, New York, NY 10001, USA"}>456 Oak Avenue, New York, NY 10001, USA</option>
+                                                  <option value={"789 Lakeview Drive, Lakewood, CO 80226, USA"}>789 Lakeview Drive, Lakewood, CO 80226, USA</option>
+                                                  <option value={"789 Downtown Ave, Los Angeles, CA 90017, USA "}>789 Downtown Ave, Los Angeles, CA 90017, USA</option>
+                                                  <option value={"123 Wine Country Lane, Napa, CA 94558, USA"}>123 Wine Country Lane, Napa, CA 94558, USA</option>
+                                                  <option value={"456 Elm Street, Austin, TX 78704, USA"}>456 Elm Street, Austin, TX 78704, USA</option>
+                                                  <option value={"789 Alpine Road, Boulder, CO 80302, USA"}>789 Alpine Road, Boulder, CO 80302, USA</option>
+                                                  <option value={"321 Seaside Blvd, Miami, FL 33139, USA"}>321 Seaside Blvd, Miami, FL 33139, USA </option>
+
                                 </select>
                             </label>
                         </div>
@@ -97,10 +105,18 @@ const DiscoverProperty = () => {
                                 <MdVilla className='text-2xl' />
                                 <select name="propertyType" className="select select-bordered w-full max-w-xs" onChange={handleFilterChange}>
                                     <option value="">Property Type</option>
-                                    {/* Add more property type options here */}
-                                    <option value="Seaside Serenity Villa">Seaside Serenity Villa</option>
-                                    <option value="Metropolitan Haven">Metropolitan Haven</option>
-                                    {/* Add more options as needed */}
+                                    <option value={"Seaside Serenity Villa"}>Seaside Serenity Villa</option>
+                                                  <option value={"Metropolitan Haven"}>Metropolitan Haven</option>
+                                                  <option value={"Rustic Retreat Cottage"}>Rustic Retreat Cottage</option>
+                                                  <option value={"Beachfront Condo with Ocean Views"}>Beachfront Condo with Ocean Views</option>
+                                                  <option value={"Mountain Chalet with Scenic Views"} >Mountain Chalet with Scenic Views</option>
+                                                  <option value={"Charming Bungalow in the Suburbs"} >Charming Bungalow in the Suburbs</option>
+                                                  <option value={"Country Estate with Vineyard"} >Country Estate with Vineyard</option>
+                                                  <option value={"Urban Loft with City Views"} >Urban Loft with City Views</option>
+                                                  <option value={"Cozy Cottage by the Lake"} >Cozy Cottage by the Lake</option>
+                                                  <option value={"Luxury Condo in Downtown"} >Luxury Condo in Downtown</option>
+                                                  <option value={"Modern Family Home"} >Modern Family Home</option>
+
                                 </select>
                             </label>
                         </div>
@@ -109,10 +125,10 @@ const DiscoverProperty = () => {
                                 <MdCameraEnhance className='text-2xl' />
                                 <select name="priceRange" className="select select-bordered" onChange={handleFilterChange}>
                                     <option value="">Price Range</option>
-                                    {/* Add more price range options here */}
+                                 
                                     <option value="100000-500000">100000-500000</option>
                                     <option value="500000-1000000">500000-1000000</option>
-                                    {/* Add more options as needed */}
+                                    
                                 </select>
                             </label>
                         </div>
@@ -121,10 +137,11 @@ const DiscoverProperty = () => {
                                 <LuBox className='text-2xl' />
                                 <select name="size" className="select select-bordered" onChange={handleFilterChange}>
                                     <option value="">Property Size</option>
-                                    {/* Add more size options here */}
+                                    
                                     <option value="1200-1500 ">1200-1500 sqft</option>
                                     <option value="1500-2000 ">1500-2000 sqft</option>
-                                    {/* Add more options as needed */}
+                                    <option value="2000-3000 ">1500-3000 sqft</option>
+                                    
                                 </select>
                             </label>
                         </div>
@@ -133,10 +150,12 @@ const DiscoverProperty = () => {
                                 <MdCalendarMonth />
                                 <select name="buildYear" className="select select-bordered" onChange={handleFilterChange}>
                                     <option value="">Build Year</option>
-                                    {/* Add more build year options here */}
+                                    
                                     <option value="1990-2000">1990-2000</option>
                                     <option value="2000-2010">2000-2010</option>
-                                    {/* Add more options as needed */}
+                                    <option value="2010-2015">2010-2015</option>
+                                    <option value="2015-2024">2015-2024</option>
+                                   
                                 </select>
                             </label>
                         </div>

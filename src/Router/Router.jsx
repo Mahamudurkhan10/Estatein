@@ -25,6 +25,10 @@ import UserMakeOrder from "../Pages/Dashboard/User/UserMakeOrder/UserMakeOrder";
 import UserPropertyDiscus from "../Pages/Dashboard/User/UserPropertyDiscus/UserPropertyDiscus";
 import Payment from "../Pages/Dashboard/User/AddCard/Payment";
 
+import PrivateRoutes from "./PrivateRoutes";
+import AdminPrivateRoutes from "./AdminPrivateRoutes";
+import AllPayments from "../Pages/Dashboard/Admin/Payments/AllPayments";
+
 export const router = createBrowserRouter([
      {
           path: "/",
@@ -52,7 +56,7 @@ export const router = createBrowserRouter([
                },
                {
                     path:'/propertyDetails/:id',
-                    element: <PropertyDetails> </PropertyDetails>,
+                    element: <PrivateRoutes><PropertyDetails> </PropertyDetails></PrivateRoutes>,
                     loader:({params}) => fetch(`http://localhost:5000/property/${params.id}`)
                },
                {
@@ -72,29 +76,30 @@ export const router = createBrowserRouter([
           children:[
                {
                     path:'AdminHome',
-                    element: <AdminHome></AdminHome>
+                    element: <AdminPrivateRoutes><AdminHome></AdminHome></AdminPrivateRoutes>
                },{
                     path:'ourProperties',
-                    element: <OurProducts></OurProducts>
+                    element: <AdminPrivateRoutes><OurProducts></OurProducts></AdminPrivateRoutes>
                },
                {
                     path:'createProperty',
-                    element:<CreateProperty></CreateProperty>
+                    element: <AdminPrivateRoutes><CreateProperty></CreateProperty></AdminPrivateRoutes>
                },
                {
                     path:'updateProperties/:id',
-                    element: <UpdateProperties></UpdateProperties>,
+                    element: <AdminPrivateRoutes> <UpdateProperties></UpdateProperties> </AdminPrivateRoutes>,
                     loader: ({params})=> fetch(`http://localhost:5000/propertyUp/${params.id}`)                              
                },
                {
                  path:'allUsers',
-                 element:<ALLUsers></ALLUsers>
+                 element: <AdminPrivateRoutes><ALLUsers></ALLUsers></AdminPrivateRoutes>
                },
                {
                     path:'makeOrder',
-                    element:<MakeOrder></MakeOrder>
+                    element:<AdminPrivateRoutes> <MakeOrder></MakeOrder> </AdminPrivateRoutes>
                }
                ,
+               // user Home
                {
                     path:'userHome',
                     element:<UserHome></UserHome>
@@ -115,6 +120,10 @@ export const router = createBrowserRouter([
                     path:'payment/:id',
                     element:<Payment></Payment>,
                     loader:({params})=> fetch(`http://localhost:5000/addCards/${params.id}`)
+               },
+               {
+                    path:'payments',
+                    element: <AllPayments></AllPayments>
                }
               
           ]

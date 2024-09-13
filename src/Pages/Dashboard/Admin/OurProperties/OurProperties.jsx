@@ -6,12 +6,13 @@ import { MdCreate, MdDelete, MdLocationPin, MdOutlineHomeWork, MdUpdate } from '
 import { Link, NavLink } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import useProperties from '../../../../Components/Hooks/useProperties'
-import useAxiosPublic from '../../../../Components/Hooks/useAxiosPublic'
+
+import useAxiosSecure from '../../../../Components/Hooks/useAxiosSecure'
 
 export default function ourProperties() {
      const [properties, refetch, loading] = useProperties()
      const [value, setValue] = useState()
-     const axiosPublic = useAxiosPublic()
+     const axiosSecure = useAxiosSecure()
      console.log(value);
      const handleSearch = (e) => {
           e.preventDefault()
@@ -31,7 +32,7 @@ export default function ourProperties() {
                     confirmButtonText: "Yes, delete it!"
                }).then((result) => {
                     if (result.isConfirmed) {
-                         axiosPublic.delete(`/propertyDelete/${id}`)
+                         axiosSecure.delete(`/propertyDelete/${id}`)
                               .then(res => {
                                    if (res.data.deletedCount > 0) {
                                         refetch()

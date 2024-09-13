@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const ALLUsers = () => {
      const axiosPublic = useAxiosPublic()
      const [Users, refetch, loading] = useUsers()
-     console.log(Users);
+     // console.log(Users);
      const handleUserChange = async(e,id) =>{
           e.preventDefault()
           const role = e.target.change.value;

@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import PropertiesCard from './PropertiesCard';
+import { NavLink } from 'react-router-dom';
 
 const FeaturedProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -56,7 +57,7 @@ const FeaturedProperties = () => {
             </p>
           </div>
           <div>
-            <button className='btn  '>View All Properties</button>
+            <a href={'/properties'} className={'btn  px-9 mt-4 lg:mt-0   text-white  '}><button className=''>View All Properties</button></a>
           </div>
         </div>
         <div className='mt-6 relative'>

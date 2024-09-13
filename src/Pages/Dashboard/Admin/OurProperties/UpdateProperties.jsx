@@ -4,13 +4,14 @@ import axios from "axios";
 import { MdCreate, MdUpdate } from "react-icons/md";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../../Components/Hooks/useAxiosPublic";
+
 import useProperties from "../../../../Components/Hooks/useProperties";
 import { GrDocumentUpdate } from "react-icons/gr";
+import useAxiosSecure from "../../../../Components/Hooks/useAxiosSecure";
 
 
 const UpdateProperties = () => {
-     const axiosPublic = useAxiosPublic()
+     const axiosSecure = useAxiosSecure()
      const [refetch] = useProperties()
      const propertyData = useLoaderData()
      const { _id, image, location, bathrooms, bedrooms, title, property_size, build_year, price, description } = propertyData;
@@ -36,7 +37,7 @@ const UpdateProperties = () => {
           }
  console.log(property);
           try {
-               const res = await axiosPublic.patch(`/propertyUpdate/${_id}`, property)
+               const res = await axiosSecure.patch(`/propertyUpdate/${_id}`, property)
                console.log(res);
                if (res.data.modifiedCount > 0) {
                    
