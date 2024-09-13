@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useAxiosPublic from '../../../../Components/Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import { AuthContext } from '../../../../Components/Provider/AuthProvider';
 
 const UserPropertyDiscus = () => {
      const axiosPublic = useAxiosPublic()
+     const {user} = useContext(AuthContext)
      const { refetch, data: priceOrders = [],isPending:loading } = useQuery({
-          queryKey: ['priceOrder',],
+          queryKey: ['priceOrder',user?.email],
           queryFn: async () => {
-            const res = await axiosPublic.get(`/priceOrder`);
+            const res = await axiosPublic.get(`/priceOrder/${user?.email}`);
             return res.data;
           }
         });
@@ -17,15 +19,15 @@ const UserPropertyDiscus = () => {
           <div className='grid lg:grid-cols-4 grid-cols-1 gap-3'>
                {priceOrders.map(priceOrder => <div>
                     <div className='border p-4 hover:shadow-2xl hover:bg-slate-900'>
-                         <h1 className='text-2xl font-semibold text-white'> Name: {makeOrder.name} </h1>
-                         <div className='flex justify-between gap-3 text-xs text-yellow-700'>
-                         <h1> {makeOrder.email} </h1>
-                         <h1> {makeOrder.phone} </h1>
+                         <h1 className='text-2xl font-semibold text-white'> Name: {priceOrder.name} </h1>
+                         <div className='text-xl'>
+                         <h1 className='text-lg'> Email: {priceOrder.email} </h1>
+                         <h1 > Phone : {priceOrder.phone} </h1>
                          </div>
-                          <div className='text-sm text-blue-500'>
-                          <h1> contactEmail: {makeOrder.contactEmail} </h1>
-                          <h1> contactNumber: {makeOrder.contactNumber} </h1>
-                          <h1 className='text-lg text-white'> Message : {makeOrder.message} </h1>
+                          <div className=''>
+                          
+                          <h1 className='text-lg text-white'> Message : {priceOrder.message} </h1>
+                          <h1 > BuGet : ${priceOrder.buGet} </h1>
                           </div>
                          
                        
