@@ -6,11 +6,13 @@ import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-do
 import { AuthContext } from '../Components/Provider/AuthProvider';
 import AdminHome from '../Pages/Dashboard/Admin/AdminHome/AdminHome';
 import { RiAdminFill } from 'react-icons/ri';
+import useUser from '../Components/Hooks/useUser';
 
 const Dashboard = () => {
      const { logOut } = useContext(AuthContext);
      const location = useLocation();
      const navigate = useNavigate();
+     const [User] = useUser()
      const form = location.state?.form?.pathname || "/";
 
      const signOut = () => {
@@ -18,10 +20,10 @@ const Dashboard = () => {
           navigate(form, { replace: true });
      }
 
-     const Admin = false; // Adjust based on your logic to check for admin roles
+     // Adjust based on your logic to check for admin roles
 
      const handleNavItem = () => {
-          return Admin ? (
+          return User.role ==='admin' ? (
                <div className="flex flex-col gap-5 lg:text-lg font-semibold text-blue-600">
                     <li className="text-center text-3xl text-emerald-600 font-bold uppercase">Admin Dashboard</li>
                     <li><NavLink to="/dashboard/adminHome"><RiAdminFill /> Admin Home</NavLink></li>
