@@ -41,7 +41,7 @@ const AdminHome = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await axiosSecure.get("http://localhost:5000/api/dashboard");
+        const response = await axiosSecure.get("https://estatein-server.vercel.app/api/dashboard");
         setDashboardData(response.data);
         console.log(response.data);
         setLoading(false);

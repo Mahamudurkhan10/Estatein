@@ -14,7 +14,7 @@ const AskQuestion = () => {
      const swiperRef = useRef(null);
 
      useEffect(() => {
-          fetch('http://localhost:5000/question')
+          fetch('https://estatein-server.vercel.app/question')
                .then(res => {
                     if (!res.ok) {
                          throw new Error(`HTTP error! status: ${res.status}`);

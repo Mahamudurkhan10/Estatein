@@ -17,7 +17,7 @@ const ReviewSection = () => {
      const [currentIndex,setCurrentIndex] = useState(0)
      const swiperRef = useRef(null)
      useEffect(()=>{
-          fetch('http://localhost:5000/reviews')
+          fetch('https://estatein-server.vercel.app/reviews')
           .then(res => res.json())
           .then(data =>{
                setReviews(data)

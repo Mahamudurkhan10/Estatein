@@ -33,7 +33,7 @@ const Register = () => {
                          role: "user",
                          creationDate: currentDate
                     }
-                    return axios.post('http://localhost:5000/users', userInfo)
+                    return axios.post('https://estatein-server.vercel.app/users', userInfo)
                          .then(res => {
                               if (res.data.insertedId) {
                                       
@@ -69,7 +69,7 @@ const Register = () => {
                     role:"user",
                     creationDate: currentDate
                }
-               axios.post("http://localhost:5000/users",userInfo)
+               axios.post("https://estatein-server.vercel.app/users",userInfo)
                .then(res =>{
                     if(res.data.insertedId){
                          Swal.fire({

@@ -29,7 +29,7 @@ const DiscoverProperty = () => {
     const fetchProperties = () => {
         const queryString = new URLSearchParams(filters).toString();
         // console.log(queryString);
-        axios.get(`http://localhost:5000/properties?${queryString}`)
+        axios.get(`https://estatein-server.vercel.app/property?${queryString}`)
             .then(response => setProperties(response.data))
             .catch(error => console.error('Error fetching properties:', error));
     };

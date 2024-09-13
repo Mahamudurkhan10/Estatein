@@ -34,7 +34,7 @@ const Login = () => {
                     role:"user",
                     creationDate: new Date()
                }
-               axios.post("http://localhost:5000/users",userInfo)
+               axios.post("https://estatein-server.vercel.app/users",userInfo)
                .then(res =>{
                     if(res.data.insertedId){
                          position: "top-end",

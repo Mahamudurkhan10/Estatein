@@ -16,7 +16,7 @@ const FeaturedProperties = () => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/properties')
+    fetch('https://estatein-server.vercel.app/properties')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);

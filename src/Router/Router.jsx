@@ -57,7 +57,7 @@ export const router = createBrowserRouter([
                {
                     path:'/propertyDetails/:id',
                     element: <PrivateRoutes><PropertyDetails> </PropertyDetails></PrivateRoutes>,
-                    loader:({params}) => fetch(`http://localhost:5000/property/${params.id}`)
+                    loader:({params}) => fetch(`https://estatein-server.vercel.app/property/${params.id}`)
                },
                {
                     path:'/login',
@@ -88,7 +88,7 @@ export const router = createBrowserRouter([
                {
                     path:'updateProperties/:id',
                     element: <AdminPrivateRoutes> <UpdateProperties></UpdateProperties> </AdminPrivateRoutes>,
-                    loader: ({params})=> fetch(`http://localhost:5000/propertyUp/${params.id}`)                              
+                    loader: ({params})=> fetch(`https://estatein-server.vercel.app/propertyUp/${params.id}`)                              
                },
                {
                  path:'allUsers',
@@ -119,7 +119,7 @@ export const router = createBrowserRouter([
                },{
                     path:'payment/:id',
                     element:<Payment></Payment>,
-                    loader:({params})=> fetch(`http://localhost:5000/addCards/${params.id}`)
+                    loader:({params})=> fetch(`https://estatein-server.vercel.app/addCards/${params.id}`)
                },
                {
                     path:'payments',
