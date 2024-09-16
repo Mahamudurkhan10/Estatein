@@ -26,7 +26,7 @@ const UserPropertyDiscus = () => {
           </div>;
      }
      return (
-          <div className='m-[50px]'>
+          <div className='m-[50px] text-gray-200'>
           <h1 className='text-center text-4xl font-semibold text-blue-700 mb-5 animate-bounce'> Make Order </h1>
           <div className='grid lg:grid-cols-4 grid-cols-1 gap-3'>
                { priceOrders.length >0 ? priceOrders.map(priceOrder => <div>

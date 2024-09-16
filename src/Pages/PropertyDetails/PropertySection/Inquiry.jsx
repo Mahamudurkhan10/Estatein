@@ -49,7 +49,7 @@ const Inquiry = () => {
      return (
           <div>
                <div className="mt-9">
-                    <div className="container mx-auto mt-9 mb-9">
+                    <div className="container text-gray-200 mx-auto mt-9 mb-9">
                          <div className="max-w-[1400px] flex justify-between  mx-auto">
                               <div className='mb-3 w-1/2 '>
                                    <h1>

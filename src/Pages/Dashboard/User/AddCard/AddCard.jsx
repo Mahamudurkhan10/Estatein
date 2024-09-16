@@ -70,7 +70,7 @@ const AddCard = () => {
           </div>;
      }
      return (
-          <div className='lg:ml-8 '>
+          <div className='lg:ml-8  text-gray-200'>
                <div className='mb-9'>
                     <h1 className='text-4xl text-[#703bf7] font-bold text-center'> Added Properties  </h1>
                </div>

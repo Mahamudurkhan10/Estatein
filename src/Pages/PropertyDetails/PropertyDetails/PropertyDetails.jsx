@@ -80,7 +80,7 @@ const PropertyDetails = () => {
      return (
           <div className="">
                <div>
-                    <div className=" container  mx-auto ">
+                    <div className=" container text-gray-200 mx-auto ">
                          <div className="max-w-[1400px] p-4  mx-auto">
                               <div className="flex justify-between  mb-5">
                                    <div className="flex items-center  gap-6 ">
@@ -110,7 +110,7 @@ const PropertyDetails = () => {
                               </Carousel>
                          </div>
                     </div>
-                    <div className="container mx-auto">
+                    <div className="container text-gray-200 mx-auto">
                          <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2   gap-4  mt-5">
                               <div className="border border-base-100 h-[300px] p-9">
                                    <h1 className="text-xl text-white"> Description </h1>
@@ -130,7 +130,7 @@ const PropertyDetails = () => {
                                              <h1 className="text-xl text-white">  {property.property_size} sqft </h1>
                                         </div>
                                    </div>
-<h1> hii  </h1>
+
                               </div>
                               <div className="border p-6 border-base-100">
                                    <h1 className="text-xl text-white "> Key Features and Amenities </h1>
@@ -149,7 +149,7 @@ const PropertyDetails = () => {
                     <Inquiry></Inquiry>
                </div>
                <div>
-                    <div className="container mx-auto ">
+                    <div className="container mx-auto text-gray-200 ">
                          <div className='max-w-[1400px] p-4 lg:p-0 mx-auto'>
                               <h1>
                                    <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />
