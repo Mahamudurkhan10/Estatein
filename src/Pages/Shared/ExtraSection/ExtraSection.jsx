@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const ExtraSection = () => {
      return (
-          <div className="  container mx-auto lg:border-2  lg:border-base-100 mb-7 mt-9">
+          <div className="  container mx-auto lg:border-2 text-gray-200  lg:border-base-100 mb-7 mt-9">
               <div
                     className="lg:bg-cover lg:bg-center lg:bg-no-repeat lg:h-[190px] lg:p-6" 
                     style={{

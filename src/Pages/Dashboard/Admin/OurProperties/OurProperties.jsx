@@ -71,7 +71,7 @@ export default function ourProperties() {
      }
 
      return (
-          <div className='lg:ml-8 '>
+          <div className='lg:ml-8 text-gray-200'>
                <div className='mb-9'>
                     <h1 className='text-4xl text-[#703bf7] font-bold text-center'> Our Properties  </h1>
                </div>
@@ -147,8 +147,8 @@ export default function ourProperties() {
                                         <NavLink to={`/propertyDetails/${property._id}`}><button className='btn  mt-2 text-white bg-[#703bf7] btn-primary'>View Details</button> </NavLink>
                                    </div>
                                    <div className='flex justify-around mt-4'>
-                                        <button onClick={() => handleDelete(property._id)} className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
-                                        <Link to={`/dashboard/updateProperties/${property._id}`}><button className='btn text-white'> <GrDocumentUpdate className='text-blue-400 text-xl'> </GrDocumentUpdate> update </button></Link>
+                                        <button onClick={() => handleDelete(property._id)} className='btn  dark:text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
+                                        <Link to={`/dashboard/updateProperties/${property._id}`}><button className='btn dark:text-white'> <GrDocumentUpdate className='text-blue-400 text-xl'> </GrDocumentUpdate> update </button></Link>
                                    </div>
                               </div>
                          </div>

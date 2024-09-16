@@ -16,11 +16,13 @@ const ReviewSection = () => {
      const [reviews , setReviews] = useState([])
      const [currentIndex,setCurrentIndex] = useState(0)
      const swiperRef = useRef(null)
+     const [loading,setLoading] = useState(true)
      useEffect(()=>{
           fetch('https://estatein-server.vercel.app/reviews')
           .then(res => res.json())
           .then(data =>{
                setReviews(data)
+               setLoading(false)
           })
      })
      const handleSlideChange = (swiper) =>{
@@ -36,8 +38,20 @@ const ReviewSection = () => {
           swiperRef.current.swiper.slidePrev()
       }
      }
+     if (loading) {
+          return <div className="flex flex-row justify-center space-x-4">
+               <div className="w-12 h-12 rounded-full animate-spin border border-dashed border-cyan-500 border-t-transparent"></div>
+
+               <div className="w-12 h-12 rounded-full animate-spin border-2 border-dashed border-indigo-500 border-t-transparent"></div>
+
+               <div className="w-12 h-12 rounded-full animate-spin border-4 border-dashed border-pink-500 border-t-transparent"></div>
+
+               <div className="w-12 h-12 rounded-full animate-spin border-8 border-dashed border-green-500 border-t-transparent">
+               </div>
+          </div>;
+     }
      return (
-          <div className="container mx-auto mb-5 mt-5">
+          <div className="container text-gray-200 mx-auto mb-5 mt-5">
                <div className="max-w-[1400px] p-4 lg:p-0 mx-auto">
                     <h1>
                          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />

@@ -15,7 +15,7 @@ const Dashboard = () => {
      const navigate = useNavigate();
      const [User,refetch] = useUser()
      const form = location.state?.form?.pathname || "/";
-      console.log('gu', User);
+     
      const signOut = () => {
           logOut();
           navigate(form, { replace: true });

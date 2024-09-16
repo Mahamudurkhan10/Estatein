@@ -41,7 +41,7 @@ const AskQuestion = () => {
           }
      }
      return (
-          <div className="container mx-auto mb-5 mt-6">
+          <div className="container mx-auto text-gray-200 mb-5 mt-6">
                <div className="max-w-[1400px] lg:p-0 p-4 mx-auto">
                     <h1>
                          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />

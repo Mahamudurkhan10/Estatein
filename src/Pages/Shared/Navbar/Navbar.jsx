@@ -24,10 +24,10 @@ console.log(user?.
      photoURL
      );
      const navItems = (
-          <div className="flex flex-col text-lg lg:flex-row gap-8">
+          <div className="flex flex-col  text-lg text-gray-300 lg:flex-row gap-8">
               
           
-               <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/'}>Home</NavLink>
+               <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold "} to={'/'}>Home</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/aboutUs'}>About Us</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/properties'}>Properties</NavLink>
                <NavLink className={({ isActive }) => isActive ? 'font-bold text-primary' : "font-semibold"} to={'/services'}>Services</NavLink>
@@ -40,7 +40,7 @@ console.log(user?.
 
           <>
 
-               <li> <NavLink to={'/dashboard'} className={"btn hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7] text-white transition duration-500 ease-in-out "}> <a href=""> Dashboard </a> </NavLink> </li>
+               <li> <NavLink to={'/dashboard'} className={"btn hover:bg-gradient-to-r from-[#703bf7] to-[#703bf7]  transition duration-500 ease-in-out "}> <a href=""> Dashboard </a> </NavLink> </li>
                <li><button onClick={signOut} className="btn bg-[#703bf7] hover:bg-gradient-to-r from-[#605d69] to-[#703bf7]  text-white flex items-center"><SlLogout />Logout</button></li>
           </>
      );
@@ -59,7 +59,7 @@ console.log(user?.
                                    {navItems}
                               </ul>
                          </div>
-                         <NavLink to={'/'} className="btn btn-ghost text-xl animate-pulse">
+                         <NavLink to={'/'} className="btn btn-ghost text-xl text-gray-200 animate-pulse">
                               <img src="https://i.ibb.co/qrTfx3H/Symbol.png" alt="" className="size-8" /> Estatein
                          </NavLink>
                     </div>
@@ -69,7 +69,7 @@ console.log(user?.
                          </ul>
                     </div>
                     <div className="navbar-end flex gap-3">
-                       <NavLink to={'/dashboard/addCard'}> <a className="relative"> <TiShoppingCart size={20}></TiShoppingCart> </a> <span className="absolute -mt-10 ml-4 text-blue-600 text-lg font-bold">{addCards.length}</span> </NavLink>
+                       <NavLink to={'/dashboard/addCard'}> <a className="relative"> <TiShoppingCart className="text-white" size={20}></TiShoppingCart> </a> <span className="absolute -mt-10 ml-4 text-blue-600 text-lg font-bold">{addCards.length}</span> </NavLink>
                          <div className="dropdown dropdown-end">
                              
                               {user ? (

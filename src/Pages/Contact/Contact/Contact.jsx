@@ -8,7 +8,7 @@ import OurLocation from "../OurLocation/OurLocation";
 
 const Contact = () => {
      return (
-          <div >
+          <div className="text-gray-200">
                 <GetInTouch></GetInTouch>
                 <ContactSection></ContactSection>
                 <LetsConnect></LetsConnect>

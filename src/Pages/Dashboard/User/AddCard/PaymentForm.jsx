@@ -91,7 +91,7 @@ const PaymentForm = ({property}) => {
                          showConfirmButton: false,
                          timer: 1500
                     });
-                    navigate(form,{replace:true})
+                   
                }
         }
 
@@ -124,8 +124,9 @@ const PaymentForm = ({property}) => {
                         {loading ? 'Processing...' : 'Pay'}
                     </button>
                     {error && <p className="text-red-600"> {error} </p>}
-                    {transactionId && <p className="text-green-600"> Transaction ID: {transactionId} </p>}
+                    {/* {transactionId && <p className="text-green-600"> Transaction ID: {transactionId} </p>} */}
                 </form>
+
             </div>
         </div>
     );

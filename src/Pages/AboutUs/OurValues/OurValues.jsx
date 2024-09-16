@@ -3,7 +3,7 @@ import React from 'react';
 const OurValues = () => {
      return (
           <div>
-                <div className="bg-[#141414] container mx-auto  ">
+                <div className="bg-[#141414] text-gray-200 container mx-auto  ">
                     <div className="  max-w-[1400px] mx-auto  mb-9 ">
                          <div className="grid lg:grid-cols-2 lg:justify-between lg:items-center grid-cols-1    ">
                               <div className=" px-2 lg:py-[90px] py-[30px] "> 

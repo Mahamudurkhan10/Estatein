@@ -4,7 +4,7 @@ import { MdOutlineArrowOutward } from 'react-icons/md';
 
 const Section = () => {
      return (
-         <div className='mb-5 mt-5 border-4 border-base-100  container mx-auto'>
+         <div className='mb-5 text-slate-100 mt-5 border-4 border-base-100  container mx-auto'>
            <div className='grid gap-5 p-5  grid-cols-1  lg:grid-cols-4'>
                <div className='bg-[#191919] text-center p-5 '>
                     <h1 className="lg:ml-[270px]"> <MdOutlineArrowOutward className='text-xl ' ></MdOutlineArrowOutward> </h1>

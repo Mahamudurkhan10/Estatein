@@ -1,14 +1,14 @@
 import React from 'react';
 import useAxiosPublic from './useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from './useAxiosSecure';
+
 
 const usePayments = () => {
-     const axiosSecure = useAxiosSecure()
+     const axiosPublic = useAxiosPublic()
      const { refetch, data: payments = [],isPending:loading } = useQuery({
           queryKey: ['payments'],
           queryFn: async () => {
-            const res = await axiosSecure.get(`/payments`);
+            const res = await axiosPublic.get(`/payments`);
             return res.data;
           }
         });

@@ -5,7 +5,7 @@ import useUser from '../../../Components/Hooks/useUser';
 const Banner = () => {
      const [User] = useUser()
      return (
-          <div className="bg-[#141414]  ">
+          <div className="bg-[#141414] text-gray-200  ">
                <div className=" container mx-auto  mt-5 ">
                     <div className=" flex flex-col lg:items-center lg:justify-between lg:flex-row-reverse ">
                          <img

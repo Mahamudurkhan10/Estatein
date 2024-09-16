@@ -3,7 +3,7 @@
 const AboutBanner = () => {
      return (
           <div>
-               <div className="bg-[#141414] container mx-auto  ">
+               <div className="bg-[#141414] container text-gray-200 mx-auto  ">
                     <div className=" max-w-[1400px] mx-auto  ">
                          <div className="p-2 flex  flex-col lg:items-center lg:flex-row-reverse ">
                               <img

@@ -9,7 +9,7 @@ import Team from "../Team/Team";
 
 const AboutUs = () => {
      return (
-          <div className="">
+          <div className="text-gray-200">
                  <AboutBanner></AboutBanner>
                  <OurValues></OurValues>
                  <OurAchievement></OurAchievement>

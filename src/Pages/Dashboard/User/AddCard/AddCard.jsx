@@ -6,11 +6,14 @@ import { FaBath, FaBed } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 
+
 const AddCard = () => {
      const [cards, refetch, loading] = useAddCards()
      const [value, setValue] = useState()
+      
      const axiosPublic = useAxiosPublic()
      console.log(value);
+ 
      const handleSearch = (e) => {
           e.preventDefault()
           setValue(e.target.search.value)
@@ -105,9 +108,9 @@ const AddCard = () => {
                     </div>
                  
                </div>
-               <div className='grid grid-cols-1 lg:grid-cols-4 gap-1'>
+               <div className='grid grid-cols-1 lg:grid-cols-3 gap-1'>
                     {newProperties.length > 0 ? newProperties?.map(property => <div key={property._id}>
-                         <h1>  </h1>
+                        
                          <div className='   border-4 border-base-100'>
                               <img src={property.image} alt={property.title} className='w-full shadow-lg  transition-all duration-100 hover:scale-110  p-5 h-64 object-cover' />
                               <div className='p-4'>
@@ -116,7 +119,7 @@ const AddCard = () => {
                                    <h1> {property.description.slice(0, 70)}... </h1>
 
 
-                                   <div className=" flex flex-row gap-1 mt-4 mb-4 ">
+                                   <div className=" flex lg:flex-row flex-col gap-1 mt-4 mb-4 ">
 
                                         <p className="btn rounded-3xl"> <FaBed className="text-xl"></FaBed> {property.bedrooms} -Beds  </p>
                                         <p className="btn rounded-3xl"> <FaBath className="text-lg"></FaBath> {property.bathrooms} -Bathrooms  </p>
@@ -137,6 +140,7 @@ const AddCard = () => {
                                    <div className='flex justify-around mt-4'>
                                         <button onClick={() => handleDelete(property._id)} className='btn  text-white'> <MdDelete className='text-red-700 text-xl'></MdDelete> delete </button>
                                         <NavLink to={`/dashboard/payment/${property._id}`}><button className="btn btn-error text-white animate-bounce"> Buy Now </button></NavLink>
+                                        
                                    </div>
                               </div>
                          </div>

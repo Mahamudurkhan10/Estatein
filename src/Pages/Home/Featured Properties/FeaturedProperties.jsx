@@ -44,7 +44,7 @@ const FeaturedProperties = () => {
     }
   };
   return (
-    <div className='container mt-5 mb-5 mx-auto'>
+    <div className='container text-gray-200 mt-5 mb-5 mx-auto'>
       <div className='max-w-[1400px] p-4 lg:p-0 mx-auto'>
         <h1>
           <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />

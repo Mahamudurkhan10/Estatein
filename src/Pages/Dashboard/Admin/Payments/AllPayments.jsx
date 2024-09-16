@@ -5,7 +5,7 @@ import { MdDelete } from 'react-icons/md';
 const AllPayments = () => {
      const [payments, refetch] = usePayments()
      return (
-          <div className='lg:ml-56'>
+          <div className='lg:ml-12 text-gray-200'>
                <div className='text-3xl font-semibold text-blue-700 mb-5 text-center'>
                     <h1> ALL Payments  </h1>
                </div>

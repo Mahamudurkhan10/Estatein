@@ -89,7 +89,7 @@ const Register = () => {
      }
      return (
           <div>
-               <div className="bg-[#141414] rounded-lg py-2">
+               <div className="bg-[#141414] text-gray-200 rounded-lg py-2">
                     <div className="container flex flex-col mx-auto   rounded-lg  my-5">
                          <div >
                               <div className=" max-w-xl mx-auto pb-12">

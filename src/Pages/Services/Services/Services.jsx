@@ -8,7 +8,7 @@ import SmartDecision from '../SmartDecision/SmartDecision';
 
 const Services = () => {
      return (
-          <div>
+          <div className='text-gray-200'>
                 <Elevate></Elevate>
                 <Section></Section>
                 <UnlockValue></UnlockValue>

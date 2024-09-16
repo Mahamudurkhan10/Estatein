@@ -6,7 +6,7 @@ import MakeIt from "../MakeIt/MakeIt";
 
 const Properties = () => {
      return (
-          <div className="">
+          <div className="text-gray-200">
                <DreamProperty></DreamProperty>
                <DiscoverProperty></DiscoverProperty>
                <MakeIt></MakeIt>

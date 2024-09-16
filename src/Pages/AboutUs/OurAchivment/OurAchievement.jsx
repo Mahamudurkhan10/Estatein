@@ -2,7 +2,7 @@
 
 const OurAchievement = () => {
      return (
-          <div className="container mx-auto mt-4 mb-9">
+          <div className="container text-gray-200 mx-auto mt-4 mb-9">
                <div className='max-w-[1400px] p-4 lg:p-0 mx-auto'>
                     <h1>
                          <img src="https://i.ibb.co/9rC9LC6/Abstract-Design.png" alt="Featured Properties" />

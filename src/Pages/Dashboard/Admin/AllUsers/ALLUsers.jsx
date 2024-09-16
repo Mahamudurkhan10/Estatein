@@ -4,9 +4,10 @@ import { FaVoicemail } from 'react-icons/fa';
 import { MdDelete, MdEdit, MdEmail } from 'react-icons/md';
 import useAxiosPublic from '../../../../Components/Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../Components/Hooks/useAxiosSecure';
 
 const ALLUsers = () => {
-     const axiosPublic = useAxiosPublic()
+     const axiosSecure = useAxiosSecure()
      const [Users, refetch, loading] = useUsers()
      // console.log(Users);
      const handleUserChange = async(e,id) =>{
@@ -14,7 +15,7 @@ const ALLUsers = () => {
           const role = e.target.change.value;
           console.log(role);
           try {
-               const res = await axiosPublic.patch(`/userUpdate/${id}`,{role})
+               const res = await axiosSecure.patch(`/userUpdate/${id}`,{role})
                if(res.data.modifiedCount >0){
                     refetch()
                     Swal.fire({
@@ -46,7 +47,7 @@ const ALLUsers = () => {
                     confirmButtonText: "Yes, delete it!"
                }).then((result) => {
                     if (result.isConfirmed) {
-                         axiosPublic.delete(`/userDelete/${id}`)
+                         axiosSecure.delete(`/userDelete/${id}`)
                               .then(res => {
                                    if (res.data.deletedCount > 0) {
                                         refetch()
@@ -84,7 +85,7 @@ const ALLUsers = () => {
           </div>;
      }
      return (
-          <div className='  lg:pl-32 '>
+          <div className='  lg:pl-32 text-white '>
                <div>
                     <h1 className='text-5xl text-center mb-6 animate-pulse bg-orange-700 opacity-15 p-3 rounded-full text-white font-semibold'> ALL Users </h1>
                </div>
