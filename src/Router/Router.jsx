@@ -74,8 +74,10 @@ export const router = createBrowserRouter([
           element: <Dashboard></Dashboard>,
           
           children:[
-            
-               
+               // {
+               //      index:true,
+               //      element:<AdminHome></AdminHome>
+               // },
                {
                     path:'AdminHome',
                     element: <AdminPrivateRoutes><AdminHome></AdminHome></AdminPrivateRoutes>

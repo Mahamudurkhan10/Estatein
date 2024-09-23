@@ -57,7 +57,7 @@ const CreateProperty = () => {
      return (
           <div className="ml-8">
                <div>
-                    <div className="mt-[50px] bg-[#141414]">
+                    <div className="mt-[50px] text-gray-300 bg-[#141414]">
                          <div className="p-10 border-2 border-base-100 mt-5 rounded shadow-sm ">
                               <form onSubmit={handleCreate}>
                                    <div className="grid grid-cols-2 lg:grid-cols-4  gap-6">
