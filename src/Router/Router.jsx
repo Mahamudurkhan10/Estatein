@@ -71,13 +71,10 @@ export const router = createBrowserRouter([
      },
      {
           path:'dashboard',
-          element: <Dashboard></Dashboard>,
+          element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
           
           children:[
-               // {
-               //      index:true,
-               //      element:<AdminHome></AdminHome>
-               // },
+              
                {
                     path:'AdminHome',
                     element: <AdminPrivateRoutes><AdminHome></AdminHome></AdminPrivateRoutes>

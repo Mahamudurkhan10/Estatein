@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaDiscourse, FaHome, FaJediOrder, FaLandmark, FaShoppingCart, FaUsers } from 'react-icons/fa';
 import { MdBorderOuter, MdDashboard, MdHome, MdPayment, MdPayments, MdReportProblem } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
@@ -10,12 +10,23 @@ import useUser from '../Components/Hooks/useUser';
 
 
 const Dashboard = () => {
+    
      const { logOut } = useContext(AuthContext);
      const location = useLocation();
+     
      const navigate = useNavigate();
      const [User,refetch] = useUser()
      const form = location.state?.form?.pathname || "/";
-     
+     useEffect(()=>{
+          if(location.pathname === '/dashboard'){
+               if(User?.role === 'admin'){
+                    navigate('/dashboard/adminHome')
+
+               }else{
+                    navigate('/dashboard/userHome')
+               }
+          }
+     },[])
      const signOut = () => {
           logOut();
           navigate(form, { replace: true });
@@ -36,7 +47,7 @@ const Dashboard = () => {
                </div>
           ) : (
                <div className='flex flex-col gap-3'>
-                    <li className="text-center text-2xl text-blue-300 font-bold">User Dashboard</li>
+                    <li className="text-center text-2xl text-emerald-600 font-bold">User Dashboard</li>
                     
                     <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/userHome"><MdHome size={25} /> {User?.role}  User Home</NavLink></li>
                     <li><NavLink className="text-blue-700 text-lg font-semibold" to="/dashboard/addCard"><FaShoppingCart /> Added Card</NavLink></li>

@@ -65,7 +65,7 @@ const DiscoverProperty = () => {
                                 <input
                                     type="text"
                                     name="search"
-                                    className="grow p-3 text-black border-base-100 rounded-l-lg focus:outline-none"
+                                    className="grow p-3 dark:text-gray-200 text-gray-900  border-base-100 rounded-l-lg focus:outline-none"
                                     placeholder="Search For a Property"
                                     onChange={handleFilterChange}
                                 />
@@ -79,7 +79,7 @@ const DiscoverProperty = () => {
                             </label>
                         </form>
                     </div>
-                    <div className='grid grid-cols-2 mt-5 lg:grid-cols-5 text-black gap-4 lg:w-3/4 bg-[#191919] p-4 mx-auto'>
+                    <div className='grid grid-cols-2 mt-5 lg:grid-cols-5  dark:text-gray-200 text-gray-900 gap-4 lg:w-3/4 bg-[#191919] p-4 mx-auto'>
                         <div>
                             <label htmlFor="location" className='flex items-center gap-3'>
                                 <CiLocationOn className='text-2xl text-white' />
