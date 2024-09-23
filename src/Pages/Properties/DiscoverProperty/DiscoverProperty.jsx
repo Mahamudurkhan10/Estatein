@@ -65,7 +65,7 @@ const DiscoverProperty = () => {
                                 <input
                                     type="text"
                                     name="search"
-                                    className="grow p-3 text-white border-base-100 rounded-l-lg focus:outline-none"
+                                    className="grow p-3 text-black border-base-100 rounded-l-lg focus:outline-none"
                                     placeholder="Search For a Property"
                                     onChange={handleFilterChange}
                                 />
@@ -79,10 +79,10 @@ const DiscoverProperty = () => {
                             </label>
                         </form>
                     </div>
-                    <div className='grid grid-cols-2 mt-5 lg:grid-cols-5 gap-4 lg:w-3/4 bg-[#191919] p-4 mx-auto'>
+                    <div className='grid grid-cols-2 mt-5 lg:grid-cols-5 text-black gap-4 lg:w-3/4 bg-[#191919] p-4 mx-auto'>
                         <div>
                             <label htmlFor="location" className='flex items-center gap-3'>
-                                <CiLocationOn className='text-2xl' />
+                                <CiLocationOn className='text-2xl text-white' />
                                 <select name="location" className="select select-bordered w-full max-w-xs" onChange={handleFilterChange}>
                                     <option value="">Your Location</option>
                                     <option value={"321 Ocean Drive, Malibu, CA 90265, USA"}>321 Ocean Drive, Malibu, CA 90265, USA</option>
@@ -102,7 +102,7 @@ const DiscoverProperty = () => {
                         </div>
                         <div>
                             <label htmlFor="propertyType" className='flex gap-3 items-center'>
-                                <MdVilla className='text-2xl' />
+                                <MdVilla className='text-2xl text-white' />
                                 <select name="propertyType" className="select select-bordered w-full max-w-xs" onChange={handleFilterChange}>
                                     <option value="">Property Type</option>
                                     <option value={"Seaside Serenity Villa"}>Seaside Serenity Villa</option>
@@ -122,7 +122,7 @@ const DiscoverProperty = () => {
                         </div>
                         <div>
                             <label htmlFor="priceRange" className='flex items-center gap-3'>
-                                <MdCameraEnhance className='text-2xl' />
+                                <MdCameraEnhance className='text-2xl text-white' />
                                 <select name="priceRange" className="select select-bordered" onChange={handleFilterChange}>
                                     <option value="">Price Range</option>
                                  
@@ -134,7 +134,7 @@ const DiscoverProperty = () => {
                         </div>
                         <div>
                             <label htmlFor="size" className='flex items-center gap-3'>
-                                <LuBox className='text-2xl' />
+                                <LuBox className='text-2xl text-white' />
                                 <select name="size" className="select select-bordered" onChange={handleFilterChange}>
                                     <option value="">Property Size</option>
                                     
@@ -147,7 +147,7 @@ const DiscoverProperty = () => {
                         </div>
                         <div>
                             <label htmlFor="buildYear" className='flex items-center gap-3'>
-                                <MdCalendarMonth />
+                                <MdCalendarMonth  className='text-white'/>
                                 <select name="buildYear" className="select select-bordered" onChange={handleFilterChange}>
                                     <option value="">Build Year</option>
                                     

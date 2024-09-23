@@ -175,7 +175,7 @@ const PropertyDetails = () => {
                                         <div className="border p-12 border-base-100">
                                              <div className="flex justify-between">
                                                   <h1 className="text-2xl text-white font-medium"> Additional Fees </h1>
-                                                  <button className="btn text-white"> Learn More </button>
+                                                  <button className="btn "> Learn More </button>
                                              </div>
                                              <div className="divider"></div>
                                              <div className="grid grid-cols-2">

@@ -74,6 +74,8 @@ export const router = createBrowserRouter([
           element: <Dashboard></Dashboard>,
           
           children:[
+            
+               
                {
                     path:'AdminHome',
                     element: <AdminPrivateRoutes><AdminHome></AdminHome></AdminPrivateRoutes>
